@@ -1,0 +1,58 @@
+---
+import type { HeroProps } from './hero.types';
+import Cta from '../../ui/cta/cta.astro';
+import { Image } from 'astro:assets';
+
+const { title, description, sideText, image, cta } = Astro.props as HeroProps;
+---
+
+<section class="hero">
+  <Image src={image.src} alt={image.alt} class="hero__background-image" />
+  <div class="hero__container">
+    <div class="hero__content-block">
+      <h1 class="hero__title">
+        {title}
+      </h1>
+
+      <p class="hero__description">
+        {description}
+      </p>
+
+      <div class="hero__cta-container">
+        {cta && cta.url && <Cta {...cta} />}
+      </div>
+    </div>
+
+    <div class="hero__side-block">
+      <span>{sideText}</span>
+    </div>
+
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    &__background-image {
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &__container {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 23%;
+      grid-template-areas: 'content-block side-block';
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    &__content-block {
+      grid-area: 'content-block';
+    }
+
+    &__side-block {
+      grid-area: 'side-block';
+    }
+  }
+</style>
