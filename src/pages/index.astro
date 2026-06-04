@@ -1,0 +1,24 @@
+---
+import Hero from '../widgets/hero/hero.astro';
+import Cta from '../ui/cta/cta.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../images/placeholder.png';
+---
+
+<html lang="en">
+  <head>
+    <title>Film photography</title>
+  </head>
+  <body>
+    <h1>Film photography</h1>
+    <Hero
+      title="The art of film photography"
+      description="A comprehensive guide to film photography. Master the fundamentals of exposure, composition, and technique through the discipline of analog capture."
+      sideText="FILM"
+      sideTextPosition="right"
+    >
+      <Image slot="image" src={heroImage} alt="Film photo example authored by Ksenya Voitekhovich in 2026">
+      <Cta text="Start exploring" url="#test" />
+    </Hero>
+  </body>
+</html>
