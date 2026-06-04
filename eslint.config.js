@@ -1,22 +1,26 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import prettier from 'eslint-config-prettier';
+import eslint from '@eslint/js';
+import astro from 'eslint-plugin-astro';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
+  eslint.configs.recommended,
+  ...astro.configs.recommended,
   {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-
+    ignores: ['.astro/**', 'dist/**', 'node_modules/**'],
+  },
+  {
+    files: ['*.astro'],
     languageOptions: {
-      globals: globals.browser,
-    },
-
-    rules: {
-      'no-console': 'warn',
-      '@typescript-eslint/no-unused-vars': 'warn',
+      parser: (await import('astro-eslint-parser')).default,
+      parserOptions: {
+        parser: tsParser,
+      },
     },
   },
-  prettier
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parser: tsParser,
+    },
+  },
 ];
