@@ -3,13 +3,17 @@ import type { HeroProps } from './hero.types';
 import Cta from '../../ui/cta/cta.astro';
 import { Image } from 'astro:assets';
 
-const { title, description, sideText, image, cta } = Astro.props as HeroProps;
+const { title, description, sideText, image, subtitle } = Astro.props as HeroProps;
 ---
 
 <section class="hero">
   <Image src={image.src} alt={image.alt} class="hero__background-image" />
   <div class="hero__container">
     <div class="hero__content-block">
+      <h2 class="hero__subtitle">
+        {subtitle}
+      </h2>
+
       <h1 class="hero__title">
         {title}
       </h1>
@@ -19,7 +23,7 @@ const { title, description, sideText, image, cta } = Astro.props as HeroProps;
       </p>
 
       <div class="hero__cta-container">
-        {cta && cta.url && <Cta {...cta} />}
+        <slot name="cta" />
       </div>
     </div>
 

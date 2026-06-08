@@ -1,5 +1,6 @@
 ---
 import Hero from '../widgets/hero/hero.astro';
+import Cta from '../ui/cta/cta.astro';
 import { heroContent } from '../content/hero';
 import '../styles/main.scss';
 ---
@@ -12,10 +13,20 @@ import '../styles/main.scss';
     <h1>Film photography</h1>
     <Hero
       title={heroContent.title}
+      subtitle={heroContent.subtitle}
       description={heroContent.description}
       sideText={heroContent.sideText}
       image={heroContent.image}
-      cta={heroContent.cta}
-    />
+    >
+      {heroContent.cta?.map(item => (
+        <Cta
+          slot="cta"
+          id={item.id}
+          text={item.text}
+          url={item.url}
+          kind={item.kind}
+        />
+      ))}
+    </Hero>
   </body>
 </html>
