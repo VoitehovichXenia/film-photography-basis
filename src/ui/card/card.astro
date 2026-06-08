@@ -1,0 +1,15 @@
+---
+import type { CardProps } from './card.types';
+const { subtitle, title, description } = Astro.props as CardProps;
+---
+
+<div class="card">
+  <slot name="number" />
+  <h4 class="card__subtitle">{subtitle}</h4>
+  <h3 class="card__title">{title}</h3>
+  <p class="card__text">{description}</p>
+</div>
+
+<style lang="scss">
+  .card {/**/}
+</style>

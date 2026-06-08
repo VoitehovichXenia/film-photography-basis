@@ -1,7 +1,12 @@
 ---
 import Hero from '../widgets/hero/hero.astro';
 import Cta from '../ui/cta/cta.astro';
-import { heroContent } from '../content/hero';
+import Section from '../widgets/section/section.astro';
+import Card from '../ui/card/card.astro';
+
+import { heroContent as hero } from '../content/hero';
+import { getStartedSectionContent as getStartedSection } from '../content/sections';
+
 import '../styles/main.scss';
 ---
 
@@ -12,21 +17,36 @@ import '../styles/main.scss';
   <body>
     <h1>Film photography</h1>
     <Hero
-      title={heroContent.title}
-      subtitle={heroContent.subtitle}
-      description={heroContent.description}
-      sideText={heroContent.sideText}
-      image={heroContent.image}
+      title={hero.title}
+      subtitle={hero.subtitle}
+      description={hero.description}
+      sideText={hero.sideText}
+      image={hero.image}
     >
-      {heroContent.cta?.map(item => (
-        <Cta
-          slot="cta"
-          id={item.id}
-          text={item.text}
-          url={item.url}
-          kind={item.kind}
-        />
-      ))}
+      {
+        hero.cta?.map((item) => (
+          <Cta slot="cta" id={item.id} text={item.text} url={item.url} kind={item.kind} />
+        ))
+      }
     </Hero>
+    <Section
+      id={getStartedSection.id}
+      title={getStartedSection.title}
+      step={getStartedSection.step}
+      stepText={getStartedSection.stepText}
+      description={getStartedSection.description}
+      contentClassName="section__card-container"
+    >
+      {
+        getStartedSection.content?.map((item) => (
+          <Card
+            slot="content"
+            title={item.title}
+            subtitle={item.subtitle}
+            description={item.description}
+          />
+        ))
+      }
+    </Section>
   </body>
 </html>
