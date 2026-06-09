@@ -2,7 +2,9 @@
 import Hero from '../widgets/hero/hero.astro';
 import Cta from '../ui/cta/cta.astro';
 import Section from '../widgets/section/section.astro';
-import Card from '../ui/card/card.astro';
+import CardGrid from '../ui/card-grid/card-grid.astro';
+import StarterKitCard from '../ui/card/starter-kit-card/starter-kit-card.astro';
+import NavCard from '../ui/card/nav-card/nav-card.astro';
 
 import { heroContent as hero } from '../content/hero';
 import { getStartedSectionContent as getStartedSection } from '../content/sections';
@@ -13,6 +15,7 @@ import '../styles/main.scss';
 <html lang="en">
   <head>
     <title>Film photography</title>
+    <meta charset="UTF-8" />
   </head>
   <body>
     <h1>Film photography</h1>
@@ -35,17 +38,36 @@ import '../styles/main.scss';
       step={getStartedSection.step}
       stepText={getStartedSection.stepText}
       description={getStartedSection.description}
-      contentClassName="section__card-container"
     >
       {
-        getStartedSection.content?.map((item) => (
-          <Card
+        getStartedSection.starterKit?.length && (
+          <CardGrid
             slot="content"
-            title={item.title}
-            subtitle={item.subtitle}
-            description={item.description}
-          />
-        ))
+            columns={{ base: getStartedSection.starterKit?.length }}
+            colGap="2px"
+          >
+            {getStartedSection.starterKit?.map((item) => (
+              <StarterKitCard
+                title={item.title}
+                pretitle={item.pretitle}
+                description={item.description}
+              />
+            ))}
+          </CardGrid>
+        )
+      }
+      {
+        getStartedSection.navCards?.length && (
+          <CardGrid
+            slot="content"
+            columns={{ base: getStartedSection.navCards.length }}
+            colGap="2px"
+          >
+            {getStartedSection.navCards.map((item) => (
+              <NavCard title={item.title} pretitle={item.pretitle} url={item.url} />
+            ))}
+          </CardGrid>
+        )
       }
     </Section>
   </body>

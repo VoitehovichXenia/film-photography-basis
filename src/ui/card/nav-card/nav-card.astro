@@ -1,0 +1,23 @@
+---
+import type { NavCardProps } from './nav-card.types';
+const { pretitle, title, url } = Astro.props as NavCardProps;
+---
+
+<a class="nav-card" href={url}>
+  <div>
+    <h4 class="nav-card__pretitle">{pretitle}</h4>
+    <h3 class="nav-card__title">{title}</h3>
+  </div>
+  <div class="nav-card__icon">
+    <span>→</span>
+  </div>
+</a>
+
+<style lang="scss">
+  .nav-card {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>

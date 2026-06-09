@@ -1,0 +1,17 @@
+---
+import type { StarterKitCardProps } from './starter-kit-card.types';
+const { pretitle, title, description, step } = Astro.props as StarterKitCardProps;
+---
+
+<div class="sk-card">
+  <span class="sk-card__step">{step}</span>
+  <h4 class="sk-card__pretitle">{pretitle}</h4>
+  <h3 class="sk-card__title">{title}</h3>
+  <p class="sk-card__text">{description}</p>
+</div>
+
+<style lang="scss">
+  .sk-card {
+    /**/
+  }
+</style>
