@@ -1,4 +1,5 @@
 export interface AbstractCardProps {
+  id: string;
   title: string;
   pretitle: string;
   description: string;

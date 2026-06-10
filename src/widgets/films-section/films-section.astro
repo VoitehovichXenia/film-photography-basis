@@ -1,0 +1,29 @@
+---
+import Section from '../../ui/section/section.astro';
+import ISOCard from '../../ui/card/iso-card/iso-card.astro';
+import CardGrid from '../../ui/card-grid/card-grid.astro';
+
+import { filmSectionContent as filmsSection } from '../../content/sections';
+---
+
+<Section
+  id={filmsSection.id}
+  title={filmsSection.title}
+  step={filmsSection.step}
+  stepText={filmsSection.stepText}
+  epigraph={filmsSection.epigraph}
+>
+  {
+    filmsSection.isoCards?.length && (
+      <CardGrid slot="content" columns={{ base: filmsSection.isoCards?.length }} colGap="2px">
+        {filmsSection.isoCards?.map((item) => (
+          <ISOCard
+            title={item.title}
+            pretitle={item.pretitle}
+            description={item.description}
+          />
+        ))}
+      </CardGrid>
+    )
+  }
+</Section>

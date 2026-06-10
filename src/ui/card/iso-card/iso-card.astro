@@ -1,0 +1,11 @@
+---
+import type { ISOCardProps } from "./iso-card.types";
+
+const { title, pretitle, description } = Astro.props as ISOCardProps
+---
+
+<div class="iso-card">
+  <h4 class="iso-card__pretitle">{pretitle}</h3>
+  <h3 class="iso-card__title">{title}</h3>
+  <p class="iso-card__description">{description}</p>
+</div>

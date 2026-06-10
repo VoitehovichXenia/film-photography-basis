@@ -1,7 +1,7 @@
 import placeholder from '../assets/placeholder.png';
 import type { ImageMetadata } from 'astro';
 
-import type { HeroProps } from '../widgets/hero/hero.types';
+import type { HeroProps } from '../ui/hero/hero.types';
 import type { CtaProps } from '../ui/cta/cta.types';
 import { SECTIONS_IDS } from './sections';
 
