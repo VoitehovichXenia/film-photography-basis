@@ -1,0 +1,11 @@
+---
+import TableHeader from "./table-header/table-header.astro"
+import type { TableProps } from './table.types';
+
+const { header } = Astro.props as TableProps
+---
+
+<table>
+  {header && <TableHeader headers={header} />}
+  <slot />
+</table>

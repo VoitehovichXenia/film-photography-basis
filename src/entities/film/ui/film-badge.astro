@@ -1,0 +1,22 @@
+---
+import type { FilmBadgeColors } from "../types";
+
+type FilmBadgeProps = {
+  color: FilmBadgeColors;
+};
+
+const { color } = Astro.props as FilmBadgeProps;
+---
+
+<span class="film__badge" style={`--bg-color: var(--${color})`} />
+
+<style lang="scss">
+  .film__badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: var(--bg-color, $gray-400);
+  }
+</style>

@@ -1,16 +1,7 @@
-import type { SectionProps } from '../ui/section/section.types';
-import type { StarterKitCardProps } from '../ui/card/starter-kit-card/starter-kit-card.types';
-import type { ISOCardProps } from '../ui/card/iso-card/iso-card.types';
 import type { NavCardProps } from '../ui/card/nav-card/nav-card.types';
-
-export enum SECTIONS_IDS {
-  GetStarted = 'get-started',
-  Cameras = 'cameras',
-  Lenses = 'lenses',
-  Films = 'films',
-  Expousure = 'expousure',
-  ExpousureCalculator = 'expousure-calc',
-}
+import type { StarterKitCardProps } from '../ui/card/starter-kit-card/starter-kit-card.types';
+import type { SectionProps } from '../ui/section/section.types';
+import { SECTIONS_IDS } from './data/sections';
 
 type GetStartedSectionProps = SectionProps & {
   starterKit: StarterKitCardProps[];
@@ -80,40 +71,6 @@ export const getStartedSectionContent: GetStartedSectionProps = {
       pretitle: 'Exposure',
       title: 'Calculate exposure',
       url: `#${SECTIONS_IDS.ExpousureCalculator}`,
-    },
-  ],
-};
-
-type FilmsSectionProps = SectionProps & {
-  isoCards: ISOCardProps[];
-};
-
-export const filmSectionContent: FilmsSectionProps = {
-  id: SECTIONS_IDS.Films,
-  step: 4,
-  stepText: 'Film',
-  title: 'Film: character in every frame',
-  epigraph:
-    'Each film imparts its own color, grain, and mood.Understanding the differences allows you to choose the right film for the task at hand.',
-  isoCards: [
-    {
-      id: 'iso-100-200',
-      pretitle: '100-200',
-      title: 'Slow film',
-      description: 'Fine grain, rich detail. Sunny day.',
-    },
-    {
-      id: 'iso-400',
-      pretitle: '400',
-      title: 'Universal',
-      description: 'Street, interior, cloudy day.A universal choice.',
-    },
-    {
-      id: 'iso-800',
-      pretitle: '800',
-      title: 'Fast film',
-      description:
-        'Concerts, night, reportage photography at short shutter speeds. Expressive, large grain.',
     },
   ],
 };

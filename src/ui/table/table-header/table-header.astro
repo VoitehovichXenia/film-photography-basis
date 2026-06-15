@@ -1,0 +1,9 @@
+---
+import type { TableHeaderProps } from "./table-header.types";
+
+const { headers } = Astro.props as TableHeaderProps;
+---
+
+<tr>
+  {headers?.map((header) => <th>{header}</th>)}
+</tr>

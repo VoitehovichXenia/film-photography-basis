@@ -3,7 +3,7 @@ import type { ImageMetadata } from 'astro';
 
 import type { HeroProps } from '../ui/hero/hero.types';
 import type { CtaProps } from '../ui/cta/cta.types';
-import { SECTIONS_IDS } from './sections';
+import { SECTIONS_IDS } from '../content/data/sections';
 
 export const heroContent: HeroProps & { cta: CtaProps[] } = {
   subtitle: 'A guide to analog photography',
