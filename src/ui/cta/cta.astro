@@ -1,0 +1,29 @@
+---
+import type { CtaProps } from './cta.types';
+
+const { text, url, kind } = Astro.props as CtaProps;
+---
+
+{
+  url && (
+    <a class:list={['cta', `cta__${kind}`]} href={url}>
+      {text}
+    </a>
+  )
+}
+
+<style lang="scss">
+  @use '../../styles/base/_variables.scss' as *;
+
+  .cta {
+    display: inline-block;
+    font-size: $text-base;
+    text-decoration: none;
+    padding: 12px 24px;
+
+    &__primary {
+      background-color: $accent;
+      color: $text-accent;
+    }
+  }
+</style>

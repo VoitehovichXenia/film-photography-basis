@@ -1,0 +1,32 @@
+---
+import Hero from '../widgets/hero/hero.astro';
+import Cta from '../ui/cta/cta.astro';
+import { heroContent } from '../content/hero';
+import '../styles/main.scss';
+---
+
+<html lang="en">
+  <head>
+    <title>Film photography</title>
+  </head>
+  <body>
+    <h1>Film photography</h1>
+    <Hero
+      title={heroContent.title}
+      subtitle={heroContent.subtitle}
+      description={heroContent.description}
+      sideText={heroContent.sideText}
+      image={heroContent.image}
+    >
+      {heroContent.cta?.map(item => (
+        <Cta
+          slot="cta"
+          id={item.id}
+          text={item.text}
+          url={item.url}
+          kind={item.kind}
+        />
+      ))}
+    </Hero>
+  </body>
+</html>
