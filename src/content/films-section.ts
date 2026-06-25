@@ -1,4 +1,4 @@
-import type { ISOCardProps } from '@ui/card/iso-card/iso-card.types';
+import type { ISOCardProps } from '@entities/film/ui/iso-card/iso-card.types';
 import type { SectionProps } from '@ui/section/section.types';
 import type { TableProps } from '@ui/table/table.types';
 import { FILMS } from './data/films';
