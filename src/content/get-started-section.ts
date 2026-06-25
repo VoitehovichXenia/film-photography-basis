@@ -1,6 +1,6 @@
-import type { NavCardProps } from '../ui/card/nav-card/nav-card.types';
-import type { StarterKitCardProps } from '../ui/card/starter-kit-card/starter-kit-card.types';
-import type { SectionProps } from '../ui/section/section.types';
+import type { NavCardProps } from '@ui/card/nav-card/nav-card.types';
+import type { StarterKitCardProps } from '@ui/card/starter-kit-card/starter-kit-card.types';
+import type { SectionProps } from '@ui/section/section.types';
 import { SECTIONS_IDS } from './data/sections';
 
 type GetStartedSectionProps = SectionProps & {

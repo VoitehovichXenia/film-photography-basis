@@ -1,11 +1,11 @@
-import type { Film } from '../../entities/film/types';
+import type { Film } from '@entities/film/film.types';
 import {
   FilmTypes,
   FilmOriginCountries,
   FilmRangs,
   FilmISOs,
   FilmBadgeColors,
-} from '../../entities/film/types';
+} from '@entities/film/film.types';
 
 export const FILMS: Film[] = [
   {

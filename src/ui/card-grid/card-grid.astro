@@ -16,8 +16,6 @@ const { columns, colGap, rowGap } = Astro.props as CardGridProps;
 </div>
 
 <style lang="scss">
-  @use '../../styles/_mixins.scss' as *;
-
   .card-grid {
     @include grid-layout(repeat(var(--columns), 1fr), auto, var(--colGap), var(--rowGap));
   }
