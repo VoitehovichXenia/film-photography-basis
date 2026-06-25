@@ -1,0 +1,43 @@
+---
+import Section from '@ui/section/section.astro';
+import CardGrid from '@ui/card-grid/card-grid.astro';
+import StarterKitCard from '@ui/card/starter-kit-card/starter-kit-card.astro';
+import NavCard from '@ui/card/nav-card/nav-card.astro';
+
+import { getStartedSectionContent as getStartedSection } from '@content/get-started-section';
+---
+
+<Section
+  id={getStartedSection.id}
+  title={getStartedSection.title}
+  step={getStartedSection.step}
+  stepText={getStartedSection.stepText}
+  epigraph={getStartedSection.epigraph}
+>
+  {
+    getStartedSection.starterKit?.length && (
+      <CardGrid
+        slot="content"
+        columns={{ base: getStartedSection.starterKit?.length }}
+        colGap="2px"
+      >
+        {getStartedSection.starterKit?.map((item) => (
+          <StarterKitCard
+            title={item.title}
+            pretitle={item.pretitle}
+            description={item.description}
+          />
+        ))}
+      </CardGrid>
+    )
+  }
+  {
+    getStartedSection.navCards?.length && (
+      <CardGrid slot="content" columns={{ base: getStartedSection.navCards.length }} colGap="2px">
+        {getStartedSection.navCards.map((item) => (
+          <NavCard title={item.title} pretitle={item.pretitle} url={item.url} />
+        ))}
+      </CardGrid>
+    )
+  }
+</Section>

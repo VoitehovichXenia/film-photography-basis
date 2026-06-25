@@ -1,6 +1,6 @@
 ---
 import type { SectionProps } from './section.types';
-const { id, step, stepText, title, description, contentClassName } = Astro.props as SectionProps;
+const { id, step, stepText, title, epigraph, contentClassName } = Astro.props as SectionProps;
 ---
 
 <section class="section" id={id}>
@@ -11,8 +11,8 @@ const { id, step, stepText, title, description, contentClassName } = Astro.props
       <h2 class="section__title">{title}</h2>
     </div>
 
-    <p class="section__description">
-      {description}
+    <p class="section__epigraph">
+      {epigraph}
     </p>
   </div>
   
@@ -26,7 +26,7 @@ const { id, step, stepText, title, description, contentClassName } = Astro.props
     &__header {
       display: grid;
       grid-template-columns: 1fr auto;
-      grid-template-areas: 'title description';
+      grid-template-areas: 'title epigraph';
       gap: 24px;
     }
 
@@ -34,8 +34,8 @@ const { id, step, stepText, title, description, contentClassName } = Astro.props
       grid-area: title;
     }
 
-    &__description {
-      grid-area: description;
+    &__epigraph {
+      grid-area: epigraph;
     }
 
     &__card-container {

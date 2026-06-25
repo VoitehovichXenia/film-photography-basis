@@ -1,0 +1,18 @@
+---
+import Hero from '@ui/hero/hero.astro';
+import Cta from '@ui/cta/cta.astro';
+
+import { heroContent as hero } from '@content/hero';
+---
+
+<Hero
+  title={hero.title}
+  subtitle={hero.subtitle}
+  description={hero.description}
+  sideText={hero.sideText}
+  image={hero.image}
+>
+  {hero.cta?.map((item) => (
+    <Cta slot="cta" id={item.id} text={item.text} url={item.url} kind={item.kind} />
+  ))}
+</Hero>

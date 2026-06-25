@@ -1,4 +1,4 @@
-import { BREAKPOINTS } from '../../config/main';
+import { BREAKPOINTS } from '@styles/config';
 
 export interface CardGridProps {
   columns: Record<keyof typeof BREAKPOINTS, number>;

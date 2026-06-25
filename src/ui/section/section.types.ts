@@ -5,6 +5,6 @@ export interface SectionProps {
   step: number;
   stepText: string;
   title: string;
-  description: string;
+  epigraph: string;
   contentClassName?: `section__${ContentClassNames}`;
 }

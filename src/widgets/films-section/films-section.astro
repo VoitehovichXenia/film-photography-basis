@@ -1,0 +1,48 @@
+---
+import Section from '@ui/section/section.astro';
+import ISOCard from '@ui/card/iso-card/iso-card.astro';
+import CardGrid from '@ui/card-grid/card-grid.astro';
+import Table from '@ui/table/table.astro';
+
+import { filmSectionContent as filmsSection } from '@content/films-section';
+import FilmBadge from '@entities/film/ui/film-badge.astro';
+
+const { isoCards, filmTable } = filmsSection;
+---
+
+<Section
+  id={filmsSection.id}
+  title={filmsSection.title}
+  step={filmsSection.step}
+  stepText={filmsSection.stepText}
+  epigraph={filmsSection.epigraph}
+>
+  {
+    isoCards?.length && (
+      <CardGrid slot="content" columns={{ base: isoCards?.length }} colGap="2px">
+        {isoCards?.map((item) => (
+          <ISOCard title={item.title} pretitle={item.pretitle} description={item.description} />
+        ))}
+      </CardGrid>
+    )
+  }
+  {
+    filmTable && (
+      <Table slot="content" header={filmTable.header}>
+        {filmTable.rows?.map(({ id, type, name, iso, rang, originCountry, description, badge }) => (
+          <tr id={id}>
+            <td>{type}</td>
+            <td>
+              <FilmBadge color={badge} />
+              {name}
+            </td>
+            <td>{iso}</td>
+            <td>{rang}</td>
+            <td>{originCountry}</td>
+            <td>{description}</td>
+          </tr>
+        ))}
+      </Table>
+    )
+  }
+</Section>
