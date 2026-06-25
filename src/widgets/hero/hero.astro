@@ -1,6 +1,5 @@
 ---
 import type { HeroProps } from './hero.types';
-import Cta from '../../ui/cta/cta.astro';
 import { Image } from 'astro:assets';
 
 const { title, description, sideText, image, subtitle } = Astro.props as HeroProps;
@@ -30,11 +29,12 @@ const { title, description, sideText, image, subtitle } = Astro.props as HeroPro
     <div class="hero__side-block">
       <span>{sideText}</span>
     </div>
-
   </div>
 </section>
 
 <style lang="scss">
+  @use '../../styles/_mixins.scss' as *;
+
   .hero {
     &__background-image {
       position: absolute;
@@ -43,9 +43,9 @@ const { title, description, sideText, image, subtitle } = Astro.props as HeroPro
     }
 
     &__container {
+      @include grid-layout(auto 23%, auto);
+
       position: relative;
-      display: grid;
-      grid-template-columns: auto 23%;
       grid-template-areas: 'content-block side-block';
       max-width: 1200px;
       margin: 0 auto;

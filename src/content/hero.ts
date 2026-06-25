@@ -1,7 +1,9 @@
 import placeholder from '../assets/placeholder.png';
 import type { ImageMetadata } from 'astro';
+
 import type { HeroProps } from '../widgets/hero/hero.types';
 import type { CtaProps } from '../ui/cta/cta.types';
+import { SECTIONS_IDS } from './sections';
 
 export const heroContent: HeroProps & { cta: CtaProps[] } = {
   subtitle: 'A guide to analog photography',
@@ -15,15 +17,15 @@ export const heroContent: HeroProps & { cta: CtaProps[] } = {
   },
   cta: [
     {
-      id: 'guide',
+      id: 'get-started',
       text: 'Start from scratch',
-      url: '#guide',
+      url: `#${SECTIONS_IDS.GetStarted}`,
       kind: 'primary',
     },
     {
-      id: 'guide',
+      id: 'calculator-cta',
       text: 'Calculate exposition',
-      url: '#guide',
+      url: '#calculator',
       kind: 'secondary',
     },
   ],

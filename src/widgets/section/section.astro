@@ -1,0 +1,46 @@
+---
+import type { SectionProps } from './section.types';
+const { id, step, stepText, title, description, contentClassName } = Astro.props as SectionProps;
+---
+
+<section class="section" id={id}>
+  <div class="section__header">
+    <div class="section__title-container">
+      <p class="section__step">{`${step}`.padStart(2, '0')} - {stepText}</p>
+
+      <h2 class="section__title">{title}</h2>
+    </div>
+
+    <p class="section__description">
+      {description}
+    </p>
+  </div>
+  
+  <div class={contentClassName}>
+    <slot name="content" />
+  </div>
+</section>
+
+<style lang="scss">
+  .section {
+    &__header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas: 'title description';
+      gap: 24px;
+    }
+
+    &__title-container {
+      grid-area: title;
+    }
+
+    &__description {
+      grid-area: description;
+    }
+
+    &__card-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+</style>

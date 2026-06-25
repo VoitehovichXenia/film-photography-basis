@@ -1,32 +1,74 @@
 ---
 import Hero from '../widgets/hero/hero.astro';
 import Cta from '../ui/cta/cta.astro';
-import { heroContent } from '../content/hero';
+import Section from '../widgets/section/section.astro';
+import CardGrid from '../ui/card-grid/card-grid.astro';
+import StarterKitCard from '../ui/card/starter-kit-card/starter-kit-card.astro';
+import NavCard from '../ui/card/nav-card/nav-card.astro';
+
+import { heroContent as hero } from '../content/hero';
+import { getStartedSectionContent as getStartedSection } from '../content/sections';
+
 import '../styles/main.scss';
 ---
 
 <html lang="en">
   <head>
     <title>Film photography</title>
+    <meta charset="UTF-8" />
   </head>
   <body>
     <h1>Film photography</h1>
     <Hero
-      title={heroContent.title}
-      subtitle={heroContent.subtitle}
-      description={heroContent.description}
-      sideText={heroContent.sideText}
-      image={heroContent.image}
+      title={hero.title}
+      subtitle={hero.subtitle}
+      description={hero.description}
+      sideText={hero.sideText}
+      image={hero.image}
     >
-      {heroContent.cta?.map(item => (
-        <Cta
-          slot="cta"
-          id={item.id}
-          text={item.text}
-          url={item.url}
-          kind={item.kind}
-        />
-      ))}
+      {
+        hero.cta?.map((item) => (
+          <Cta slot="cta" id={item.id} text={item.text} url={item.url} kind={item.kind} />
+        ))
+      }
     </Hero>
+    <Section
+      id={getStartedSection.id}
+      title={getStartedSection.title}
+      step={getStartedSection.step}
+      stepText={getStartedSection.stepText}
+      description={getStartedSection.description}
+    >
+      {
+        getStartedSection.starterKit?.length && (
+          <CardGrid
+            slot="content"
+            columns={{ base: getStartedSection.starterKit?.length }}
+            colGap="2px"
+          >
+            {getStartedSection.starterKit?.map((item) => (
+              <StarterKitCard
+                title={item.title}
+                pretitle={item.pretitle}
+                description={item.description}
+              />
+            ))}
+          </CardGrid>
+        )
+      }
+      {
+        getStartedSection.navCards?.length && (
+          <CardGrid
+            slot="content"
+            columns={{ base: getStartedSection.navCards.length }}
+            colGap="2px"
+          >
+            {getStartedSection.navCards.map((item) => (
+              <NavCard title={item.title} pretitle={item.pretitle} url={item.url} />
+            ))}
+          </CardGrid>
+        )
+      }
+    </Section>
   </body>
 </html>
