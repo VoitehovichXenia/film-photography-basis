@@ -4,10 +4,12 @@ $text-accent: #ffffff;
 $gray-400: #aaaaaa;
 $film-gold: #ffbd20;
 
+:root {
+  --accent: $accent;
+  --gray-400: $gray-400;
+  --film-gold: #ffbd20;
+}
+
 /* Typography */
 $text-base: 1rem;
 $text-base--line-height: calc(1.5 / 1);
-
-:root {
-  --film-gold: #ffbd20;
-}

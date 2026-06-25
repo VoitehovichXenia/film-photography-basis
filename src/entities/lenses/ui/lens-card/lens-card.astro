@@ -1,0 +1,62 @@
+---
+import type { LensCardProps } from './lens-card.types';
+
+const { pretitle, title, description, tags, isHighlighted, angleScale } =
+  Astro.props as LensCardProps;
+---
+
+<div class="lens-card" data-highlighted={isHighlighted}>
+  <div class="lens-card__angle">
+    <span>subject</span>
+    <div class="angle-scale">
+      <div class="angle-of-view" style={`--width: ${angleScale}%`}></div>
+    </div>
+    <span>camera</span>
+  </div>
+  <h4 class="lens-card__pretitle">{pretitle}</h4>
+  <h3 class="lens-card__title">{title}</h3>
+  <p class="lens-card__description">{description}</p>
+  {
+    tags && (
+      <div class="lens-card__tags">
+        {tags.map((tag, i) => (
+          <span>
+            {tag}
+            {i !== tags.length - 1 ? ' · ' : ''}
+          </span>
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<style lang="scss">
+  .lens-card {
+    border-top: 3px solid $gray-400;
+
+    &[data-highlighted='true'] {
+      border-top-color: $accent;
+    }
+
+    &__angle {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+
+      .angle-scale {
+        width: 100%;
+        height: 4px;
+        background-color: $gray-400;
+
+        .angle-of-view {
+          height: 4px;
+          background-color: $accent;
+          margin: 0 auto;
+          width: var(--width);
+        }
+      }
+    }
+  }
+</style>
