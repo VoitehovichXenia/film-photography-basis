@@ -7,7 +7,8 @@
       "@ui/*": ["./src/ui/*"],
       "@entities/*": ["./src/entities/*"],
       "@widgets/*": ["./src/widgets/*"],
-      "@content/*": ["./src/content/*"]
+      "@content/*": ["./src/content/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   }
 }

@@ -1,3 +1,5 @@
+import type { WithId } from '../../shared/types/with-id';
+
 export enum FilmTypes {
   blackWhite = 'B&W',
   color = 'Color',
@@ -27,8 +29,7 @@ export enum FilmBadgeColors {
   bw = 'gray-400',
 }
 
-export type Film = {
-  id: string;
+export interface Film extends WithId {
   originCountry: FilmOriginCountries;
   name: string;
   iso: FilmISOs;
@@ -36,4 +37,4 @@ export type Film = {
   description: string;
   rang: FilmRangs;
   badge: FilmBadgeColors;
-};
+}

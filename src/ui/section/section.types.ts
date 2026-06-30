@@ -1,7 +1,9 @@
+import type { SECTIONS_IDS } from '@content/data/sections';
+import type { WithId } from '@shared/types/with-id';
+
 type ContentClassNames = 'card-container';
 
-export interface SectionProps {
-  id: string;
+export interface SectionProps extends WithId<SECTIONS_IDS> {
   step: number;
   stepText: string;
   title: string;
