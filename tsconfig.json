@@ -8,6 +8,7 @@
       "@entities/*": ["./src/entities/*"],
       "@widgets/*": ["./src/widgets/*"],
       "@content/*": ["./src/content/*"],
+      "@features/*": ["./src/features/*"],
       "@shared/*": ["./src/shared/*"]
     }
   }

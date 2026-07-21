@@ -1,0 +1,15 @@
+---
+import type { RadioInputProps } from "./radio-input.types"
+
+const { id, name, value, label } = Astro.props as RadioInputProps
+---
+
+<label>
+  <input
+    type="radio"
+    name={name}
+    value={value}
+    id={id}
+  />
+  <span>{label.text}</span>
+</label>
