@@ -1,0 +1,14 @@
+---
+import Header from "@widgets/header/header.astro"
+---
+
+<html lang="en">
+  <head>
+    <slot name="head" />
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <!-- <Footer /> -->
+  </body>
+</html>

@@ -6,8 +6,12 @@ $text-accent-05: #faf8f4;
 $gray-50: #e9e9e8;
 $gray-400: #aaaaaa;
 $gray-500: #878787;
+$gray-600: #6b6560;
 $black: #000;
 $white: #fff;
+$neutral-01: #faf8f4f2;
+$neutral-15: #0f0f0f;
+$neutral-10: #0f0f0f1c;
 $film-gold: #ffbd20;
 
 :root {
@@ -18,9 +22,12 @@ $film-gold: #ffbd20;
 /* Typography */
 $text-xs: 0.81rem;
 $text-base: 1rem;
+$text-md: 1.125rem;
 $text-lg: 3rem;
 $text-xs--line-height: 1.6;
 $text-base--line-height: calc(1.5 / 1);
 $text-lg--line-height: 1;
 $text-regular: 400;
 $text-semi-bold: 600;
+
+$font-serif: 'Bebas Neue', 'Arial Narrow', sans-serif;
