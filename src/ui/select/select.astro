@@ -1,0 +1,29 @@
+---
+import type { SelectProps } from './select.types';
+
+const { id, options, name, label, labelPosition = 'before', hidden } = Astro.props as SelectProps;
+---
+
+{
+  (() => {
+    const select = (
+      <select id={id} name={name} hidden={hidden}>
+        {options.map(({ id, value, text, selected }) => (
+          <option id={id} value={value} selected={selected}>
+            {text}
+          </option>
+        ))}
+      </select>
+    );
+
+    if (!label) return select;
+
+    if (labelPosition === 'before')
+      return (
+        <label class={label.class} for={id} hidden={label.hidden}>
+          <span>{label.text}</span>
+          {select}
+        </label>
+      );
+  })()
+}

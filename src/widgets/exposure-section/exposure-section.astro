@@ -1,0 +1,48 @@
+---
+import Section from '@ui/section/section.astro';
+import { exposureSectionContent as exposureSection } from '@content/exposure-section';
+import ExposureTriangle from '@entities/exposure/ui/exposure-triangle/exposure-triangle.astro';
+import ExposureCard from '@entities/exposure/ui/exposure-card/exposure-card.astro';
+---
+
+<Section
+  id={exposureSection.id}
+  step={exposureSection.step}
+  stepText={exposureSection.stepText}
+  title={exposureSection.title}
+  epigraph={exposureSection.epigraph}
+>
+  <div slot="content" class="exposure-section__content-container">
+    <ExposureTriangle />
+    <div class="exposure-section__concepts">
+      <h3 class="concepts-title">Key concepts:</h3>
+      {
+        exposureSection.cards.map((card, i) => (
+          <ExposureCard {...card} key={card.id} step={i + 1} />
+        ))
+      }
+    </div>
+    <ExposureCard {...exposureSection.rule} className="exposure-section__rule" />
+  </div>
+</Section>
+
+<style lang="scss">
+  .exposure-section {
+    &__content-container {
+      @include grid-layout(1fr 1fr, auto auto, 80px);
+      grid-template-areas: '. concepts' 'rule rule';
+    }
+
+    &__concepts {
+      grid-area: concepts;
+
+      .concepts-title {
+        margin: 0 0 24px;
+      }
+    }
+
+    &__rule {
+      grid-area: rule;
+    }
+  }
+</style>

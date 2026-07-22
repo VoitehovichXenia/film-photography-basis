@@ -1,0 +1,129 @@
+<script>
+  import {
+    APERTURE_STOPS,
+    SHUTTER_STOPS,
+    EXPOSURE_PRIORITIES,
+  } from '@entities/exposure/exposure.types';
+  import type {
+    ShutterStopValues,
+    ApertureStopValues,
+    EVNumbersValues,
+    ExposurePrioritiesType,
+  } from '@entities/exposure/exposure.types';
+  import { type IsoStopsValues } from '@entities/film/film.types';
+
+  // Calculations
+  function calculateShutterSpeed(
+    aperture: ApertureStopValues,
+    iso: IsoStopsValues,
+    ev: EVNumbersValues,
+  ): ShutterStopValues {
+    return (100 * Math.pow(aperture, 2)) / (iso * Math.pow(2, ev)) as ShutterStopValues;
+  }
+
+  function calculateAperture(
+    shutterSpeed: ShutterStopValues,
+    iso: IsoStopsValues,
+    ev: EVNumbersValues,
+  ): ApertureStopValues {
+    return Math.floor(
+      Math.sqrt((shutterSpeed * Math.pow(2, ev) * iso) / 100),
+    ) as ApertureStopValues;
+  }
+
+  function findNearest(
+    stops: typeof APERTURE_STOPS | typeof SHUTTER_STOPS,
+    target: ApertureStopValues | ShutterStopValues,
+  ) {
+    return stops.reduce((best, stop) =>
+      Math.abs(stop.value - target) < Math.abs(best.value - target) ? stop : best,
+    );
+  }
+
+  function calculateThirdParameter(
+    priority: ExposurePrioritiesType,
+    ev: EVNumbersValues,
+    iso: IsoStopsValues,
+    secondParam: ApertureStopValues | ShutterStopValues,
+  ): string | null {
+    if (priority === EXPOSURE_PRIORITIES.aperture) {
+      const shutterSpeed = calculateShutterSpeed(
+        secondParam as ApertureStopValues,
+        iso,
+        ev,
+      ) as ShutterStopValues;
+      return findNearest(SHUTTER_STOPS, shutterSpeed).label;
+    } else if (priority === EXPOSURE_PRIORITIES.shutters) {
+      const aperture = calculateAperture(
+        secondParam as ShutterStopValues,
+        iso,
+        ev,
+      ) as ApertureStopValues;
+
+      return findNearest(APERTURE_STOPS, aperture).label;
+    }
+
+    return null
+  }
+
+  // DOM
+  function toggleFields(priority: ExposurePrioritiesType) {
+    const labels = document.getElementsByClassName(
+      'exposure-select',
+    ) as HTMLCollectionOf<HTMLLabelElement>;
+
+    for (let label of labels) {
+      const result = document.querySelector(`div[data-for="${label.htmlFor}"]`) as HTMLDivElement;
+      if (label.htmlFor === `exposure-select-${priority}`) {
+        label.hidden = false;
+        result.hidden = false;
+      } else {
+        label.hidden = true;
+        result.hidden = true;
+      }
+    }
+  }
+
+  function handleChange(e: Event) {
+    e.preventDefault();
+
+    const form = e.currentTarget as HTMLFormElement;
+    if (form) {
+      
+    }
+    const elements = form.elements as HTMLFormControlsCollection & {
+      priority: HTMLInputElement;
+      ev: HTMLSelectElement;
+      iso: HTMLSelectElement;
+      'exposure-select-priority_aperture': HTMLSelectElement;
+      'exposure-select-priority_shutters': HTMLSelectElement;
+    };
+
+    const priority = elements.priority.value as ExposurePrioritiesType;
+    const EV = elements.ev.value;
+    const iso = elements.iso.value;
+    const aperture = elements[`exposure-select-${EXPOSURE_PRIORITIES.aperture}`].value;
+    const shutter = (
+      elements.namedItem(`exposure-select-${EXPOSURE_PRIORITIES.shutters}`) as HTMLSelectElement
+    ).value;
+    form.dataset.priority = priority;
+
+    toggleFields(priority);
+    const result = calculateThirdParameter(
+      priority,
+      Number(EV) as EVNumbersValues,
+      Number(iso),
+      priority === EXPOSURE_PRIORITIES.aperture ? Number(aperture) : Number(shutter),
+    );
+
+    const resultBlock = document.querySelector(
+      `div[data-for="exposure-select-${priority}"] .result`,
+    ) as HTMLDivElement;
+    resultBlock.textContent = result;
+  }
+
+  const form = document.getElementById('calculator') as HTMLFormElement;
+  const aperturePriority = document.getElementById('priority_aperture') as HTMLInputElement;
+  aperturePriority.checked = true;
+  form?.addEventListener('change', handleChange);
+</script>

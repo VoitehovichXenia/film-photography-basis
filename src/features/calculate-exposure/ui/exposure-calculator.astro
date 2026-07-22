@@ -1,0 +1,35 @@
+---
+import Select from '@ui/select/select.astro';
+import RadioInput from '@ui/radio-input/radio-input.astro';
+import CalculateExposure from '../calculate-exposure.astro';
+import type { ExposureCalculatorProps } from './exposure-calculator.types';
+
+const { isoSelect, evSelect, apertureSelect, shutterSelect, priority, resultBlock } =
+  Astro.props as ExposureCalculatorProps;
+---
+
+<div>
+  <form id="calculator" data-priority="aperture">
+    <Select {...isoSelect} />
+    <Select {...evSelect} />
+    <fieldset>
+      <span>{priority.label}</span>
+      {priority.radios.map((radio) => <RadioInput key={radio.id} {...radio} />)}
+    </fieldset>
+    <Select {...apertureSelect} />
+    <Select {...shutterSelect} />
+  </form>
+  <div>
+    <span>{resultBlock.title}</span>
+    {
+      resultBlock.blocks.map((block) => (
+        <div data-for={block.dataFor} hidden={block.hidden}>
+          <p>{block.title}</p>
+          <h4 class="result">{block.result}</h4>
+        </div>
+      ))
+    }
+    <p>{resultBlock.footnote}</p>
+  </div>
+</div>
+<CalculateExposure />

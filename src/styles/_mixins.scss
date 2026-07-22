@@ -5,3 +5,11 @@
   column-gap: $col-gap;
   row-gap: $row-gap;
 }
+
+@mixin flex-layout($align: center, $justify: center, $dir: row, $col-gap: 0, $row-gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $row-gap $col-gap;
+}
