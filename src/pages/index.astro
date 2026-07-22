@@ -5,21 +5,18 @@ import FilmsSection from '@widgets/films-section/films-section.astro';
 import LensesSection from '@widgets/lenses-section/lenses-section.astro';
 import ExposureSection from '@widgets/exposure-section/exposure-section.astro';
 import ExposureCalculatorSection from '@widgets/exposure-calculator-section/exposure-calculator-section.astro';
+import BaseLayout from '../layouts/base-layout.astro';
 
 import '@styles/main.scss';
 ---
 
-<html lang="en">
-  <head>
-    <title>Film photography</title>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-    <Hero />   
-    <GetStartedSection />
-    <FilmsSection />
-    <LensesSection />
-    <ExposureSection />
-    <ExposureCalculatorSection />
-  </body>
-</html>
+<BaseLayout>
+  <title slot="head">Film photography</title>
+  <meta slot="head" charset="UTF-8" />
+  <Hero />
+  <GetStartedSection />
+  <FilmsSection />
+  <LensesSection />
+  <ExposureSection />
+  <ExposureCalculatorSection />
+</BaseLayout>

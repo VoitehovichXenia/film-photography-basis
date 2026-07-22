@@ -1,0 +1,15 @@
+---
+import Header from "@widgets/header/header.astro";
+import Footer from "@widgets/footer/footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <slot name="head" />
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <Footer />
+  </body>
+</html>
