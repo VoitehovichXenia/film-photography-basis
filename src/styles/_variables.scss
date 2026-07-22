@@ -1,3 +1,6 @@
+/* Breakpoints & sizes */
+$max-width: 1320px;
+
 /* Colors */
 $accent: #a8332d;
 $accent-10: #c49a9a;
@@ -23,11 +26,14 @@ $film-gold: #ffbd20;
 $text-xs: 0.81rem;
 $text-base: 1rem;
 $text-md: 1.125rem;
-$text-lg: 3rem;
+$text-lg: 1.5rem;
+$text-xl: 3rem;
 $text-xs--line-height: 1.6;
 $text-base--line-height: calc(1.5 / 1);
-$text-lg--line-height: 1;
+$text-xl--line-height: 1;
+$text-light: 300;
 $text-regular: 400;
 $text-semi-bold: 600;
 
 $font-serif: 'Bebas Neue', 'Arial Narrow', sans-serif;
+$font-mono: 'IBM Plex Mono', monospace;

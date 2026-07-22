@@ -1,0 +1,127 @@
+---
+import { footerContent } from '@content/footer';
+
+const { logo, links, personal } = footerContent;
+---
+
+<footer class="footer">
+  <div class="footer__logo-block">
+    <h2 class="footer__logo">{logo.logoText}</h2>
+    <p class="footer__tagline">{logo.tagline}</p>
+  </div>
+  <nav class="footer__nav">
+    {
+      links.map((link) => (
+        <a class="footer__nav-link" href={link.href}>
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="footer__author">
+    <h2 class="footer__author-name">{personal.fullName}</h2>
+    <h3 class="footer__author-position">{personal.position}</h3>
+    <nav class="footer__author-contacts">
+      {personal.contacts.map((link) => <a href={link.href}>{link.label} →</a>)}
+    </nav>
+  </div>
+</footer>
+<div class="footer__bottom">
+  <p>© {new Date(Date.now()).getFullYear()} {logo.logoText}</p>
+  <ul>
+    {
+      personal.techStack.map((technology, i, arr) => (
+        <li>
+          <span>{technology}</span>
+          {i !== arr.length - 1 && <span> · </span>}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  .footer {
+    @include grid-layout(repeat(3, 1fr), repeat(2, auto), $col-gap: 40px);
+    grid-template-areas: 'logo nav author' 'bottom bottom bottom';
+    align-items: end;
+    border-top: 1px solid $neutral-10;
+    padding: 80px 60px 60px;
+    max-width: $max-width;
+    margin: 0 auto;
+
+    &__logo-block {
+      grid-area: logo;
+    }
+    &__logo {
+      font-family: $font-serif;
+      font-size: $text-lg;
+      font-weight: $text-semi-bold;
+      text-transform: uppercase;
+    }
+    &__tagline {
+      margin-top: 8px;
+      font-size: $text-xs;
+      color: $gray-600;
+      line-height: $text-xs--line-height;
+    }
+
+    &__nav {
+      grid-area: nav;
+      @include flex-layout(flex-start, center, column, 0, 12px);
+
+      &-link {
+        display: block;
+        font-size: $text-xs;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $gray-600;
+        transition: color 0.2s;
+
+        &:hover {
+          color: $neutral-15;
+        }
+      }
+    }
+    &__author {
+      grid-area: author;
+      text-align: right;
+
+      &-name {
+        font-family: $font-serif;
+        font-weight: $text-light;
+        font-size: $text-md;
+        margin-bottom: 4px;
+      }
+      &-position {
+        font-family: $font-mono;
+        font-size: $text-xs;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $accent;
+      }
+      &-contacts {
+        @include flex-layout(center, flex-end, row, 16px);
+        margin-top: 16px;
+      }
+    }
+    &__bottom {
+      @include flex-layout(center, space-between);
+      grid-area: bottom;
+      max-width: $max-width;
+      margin: 0 auto;
+      padding: 24px 60px;
+      border-top: 1px solid $neutral-10;
+      font-family: $font-mono;
+      font-size: $text-xs;
+      color: $gray-600;
+      letter-spacing: 0.06em;
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        gap: 4px;
+      }
+    }
+  }
+</style>
