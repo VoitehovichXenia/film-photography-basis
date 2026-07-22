@@ -1,7 +1,14 @@
 @use './reset';
 @use './variables';
 @use './mixins';
+@use './fonts';
+
+:root {
+  --gray-400: #aaaaaa;
+  --film-gold: #ffbd20;
+}
 
 body {
   background-color: $neutral-01;
+  font-family: $font-sans;
 }

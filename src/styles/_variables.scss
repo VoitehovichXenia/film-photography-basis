@@ -17,12 +17,8 @@ $neutral-15: #0f0f0f;
 $neutral-10: #0f0f0f1c;
 $film-gold: #ffbd20;
 
-:root {
-  --gray-400: #aaaaaa;
-  --film-gold: #ffbd20;
-}
-
 /* Typography */
+$text-xxs: 0.69rem;
 $text-xs: 0.81rem;
 $text-base: 1rem;
 $text-md: 1.125rem;
@@ -35,5 +31,6 @@ $text-light: 300;
 $text-regular: 400;
 $text-semi-bold: 600;
 
+$font-sans: 'IBM Plex Sans', sans-serif;
 $font-serif: 'Bebas Neue', 'Arial Narrow', sans-serif;
 $font-mono: 'IBM Plex Mono', monospace;
