@@ -4,11 +4,12 @@ $cta-variants: (
   primary: (
     bg: $accent,
     color: $text-accent,
-    hover-bg: #cc9234,
+    hover-bg: $accent-hover,
   ),
   primary_dark-text: (
     bg: $accent,
     color: $text-accent-dark,
+    hover-bg: $accent-hover,
     hover-color: $text-accent,
   ),
   secondary: (
