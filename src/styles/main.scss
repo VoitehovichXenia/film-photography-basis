@@ -8,7 +8,12 @@
   --film-gold: #ffbd20;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  padding-top: $header-height-lg;
   background-color: $neutral-01;
   font-family: $font-sans;
 }

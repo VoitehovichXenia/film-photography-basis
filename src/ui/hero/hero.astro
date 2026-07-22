@@ -1,11 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import type { HeroProps } from './hero.types';
+import './hero.scss';
 
-const { title, description, sideText, image, subtitle } = Astro.props as HeroProps;
+const { title, titleAccent, description, sideText, image, subtitle } = Astro.props as HeroProps;
+
+const titleText = titleAccent
+  ? title.replace(titleAccent, `<span class="hero-accent">${titleAccent}</span>`)
+  : title;
 ---
 
-<section class="hero">
+<div class="hero">
   <Image src={image.src} alt={image.alt} class="hero__background-image" />
   <div class="hero__container">
     <div class="hero__content-block">
@@ -13,9 +18,7 @@ const { title, description, sideText, image, subtitle } = Astro.props as HeroPro
         {subtitle}
       </h2>
 
-      <h1 class="hero__title">
-        {title}
-      </h1>
+      <h1 class="hero__title" set:html={titleText} />
 
       <p class="hero__description">
         {description}
@@ -25,36 +28,8 @@ const { title, description, sideText, image, subtitle } = Astro.props as HeroPro
         <slot name="cta" />
       </div>
     </div>
-
-    <div class="hero__side-block">
-      <span>{sideText}</span>
-    </div>
   </div>
-</section>
-
-<style lang="scss">
-  .hero {
-    &__background-image {
-      position: absolute;
-      width: 100%;
-      z-index: -1;
-    }
-
-    &__container {
-      @include grid-layout(auto 23%, auto);
-
-      position: relative;
-      grid-template-areas: 'content-block side-block';
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    &__content-block {
-      grid-area: 'content-block';
-    }
-
-    &__side-block {
-      grid-area: 'side-block';
-    }
-  }
-</style>
+  <div class="hero__side-block">
+    <span>{sideText}</span>
+  </div>
+</div>

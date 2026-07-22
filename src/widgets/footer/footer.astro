@@ -1,7 +1,7 @@
 ---
 import { footerContent } from '@content/footer';
 
-const { logo, links, personal } = footerContent;
+const { logo, links, personal, licence } = footerContent;
 ---
 
 <footer class="footer">
@@ -27,7 +27,7 @@ const { logo, links, personal } = footerContent;
   </div>
 </footer>
 <div class="footer__bottom">
-  <p>© {new Date(Date.now()).getFullYear()} {logo.logoText}</p>
+  <p>© {new Date(Date.now()).getFullYear()} {logo.logoText}, {licence}</p>
   <ul>
     {
       personal.techStack.map((technology, i, arr) => (

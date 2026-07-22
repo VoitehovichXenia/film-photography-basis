@@ -15,7 +15,7 @@ const { id, step, stepText, title, epigraph, contentClassName } = Astro.props as
       {epigraph}
     </p>
   </div>
-  
+
   <div class={contentClassName}>
     <slot name="content" />
   </div>
@@ -23,6 +23,8 @@ const { id, step, stepText, title, epigraph, contentClassName } = Astro.props as
 
 <style lang="scss">
   .section {
+    scroll-margin-top: calc($header-height-lg + 4px);
+
     &__header {
       display: grid;
       grid-template-columns: 1fr auto;
