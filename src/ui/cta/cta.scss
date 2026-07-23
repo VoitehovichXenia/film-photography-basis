@@ -34,6 +34,7 @@ $cta-variants: (
   font-weight: $text-semi-bold;
   text-decoration: none;
   transition: all 0.3s;
+  text-align: center;
 
   @each $name, $props in $cta-variants {
     &__#{$name} {

@@ -50,8 +50,21 @@ $border-50: $gray-50;
 $border-400: $gray-400;
 
 /* Breakpoints & sizes */
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
 $max-width: 1320px;
 $header-height-lg: 88px;
+
+$spacing-xxs: 8px;
+$spacing-xs: 16px;
+$spacing-s: 24px;
+$spacing-md: 32px;
+$spacing-lg: 40px;
+$spacing-xxl: 80px;
 
 /* Typography */
 
@@ -72,6 +85,7 @@ $text-xl--line-height: 1;
 $text-light: 300;
 $text-regular: 400;
 $text-semi-bold: 600;
+$text-bold: 700;
 
 // Font families
 $font-sans: 'IBM Plex Sans', sans-serif;
