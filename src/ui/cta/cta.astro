@@ -1,5 +1,6 @@
 ---
 import type { CtaProps } from './cta.types';
+import './cta.scss';
 
 const { text, url, kind } = Astro.props as CtaProps;
 ---
@@ -11,18 +12,3 @@ const { text, url, kind } = Astro.props as CtaProps;
     </a>
   )
 }
-
-<style lang="scss">
-
-  .cta {
-    display: inline-block;
-    font-size: $text-base;
-    text-decoration: none;
-    padding: 12px 24px;
-
-    &__primary {
-      background-color: $accent;
-      color: $text-accent;
-    }
-  }
-</style>

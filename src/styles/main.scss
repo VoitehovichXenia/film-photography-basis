@@ -5,10 +5,15 @@
 
 :root {
   --gray-400: #aaaaaa;
-  --film-gold: #ffbd20;
+  --accent-glow: #ffbd20;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: $neutral-01;
+  padding-top: $header-height-lg;
+  background-color: $bg-main;
   font-family: $font-sans;
 }

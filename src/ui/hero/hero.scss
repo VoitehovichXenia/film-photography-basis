@@ -1,0 +1,136 @@
+%hero-title {
+  font-family: $font-serif;
+  font-size: clamp(80px, 9vw, 136px);
+  line-height: 0.95;
+  font-weight: $text-regular;
+  letter-spacing: 0.02em;
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - $header-height-lg);
+  color: $text-accent;
+
+  @media (max-width: $breakpoint-md) {
+    width: 100vw;
+    min-height: unset;
+  }
+
+  &__background-image {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    @include grid-layout(auto 360px, auto);
+    position: relative;
+    grid-template-areas: 'content-block side-block';
+    width: 100%;
+    height: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: $spacing-xxl $spacing-s;
+
+    @media (max-width: $breakpoint-md) {
+      @include grid-layout(auto, auto auto);
+      grid-template-areas: 'content-block' 'side-block';
+      padding: $spacing-lg $spacing-s;
+    }
+  }
+
+  &__content-block {
+    grid-area: content-block;
+    max-width: min-content;
+    padding: $spacing-lg;
+    background-color: $black-35;
+
+    @media (max-width: $breakpoint-sm) {
+      max-width: unset;
+      padding: $spacing-s;
+      width: 100%;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      justify-self: center;
+    }
+  }
+
+  &__side-block {
+    position: absolute;
+    right: 0;
+    top: calc($header-height-lg + 20%);
+    align-self: end;
+    font-family: $font-serif;
+    font-weight: $text-bold;
+    font-size: 220px;
+    line-height: 1.1;
+    color: $text-accent;
+    transform: rotate(270deg) translateY(120px);
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__cta-container {
+    @include flex-layout(center, flex-start, row, 12px, 12px);
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__subtitle {
+    @include flex-layout(center, flex-start, row, 16px);
+    margin-bottom: 28px;
+    font-family: $font-mono;
+    font-size: $text-xxs;
+    letter-spacing: 0.2em;
+    color: $text-accent;
+    text-transform: uppercase;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: $text-accent;
+      margin-right: 8px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 2.5vw;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      &::before {
+        width: 20px;
+      }
+    }
+  }
+
+  &__title {
+    @extend %hero-title;
+    color: $text-accent;
+    margin-bottom: 32px;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 15vw;
+    }
+  }
+
+  &__description {
+    font-size: $text-md;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: $text-xs;
+    }
+  }
+}

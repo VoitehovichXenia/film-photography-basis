@@ -1,0 +1,63 @@
+@use 'sass:map';
+
+$cta-variants: (
+  primary: (
+    bg: $accent,
+    color: $text-accent,
+    hover-bg: $accent-hover,
+  ),
+  primary_dark-text: (
+    bg: $accent,
+    color: $text-accent-dark,
+    hover-bg: $accent-hover,
+    hover-color: $text-accent,
+  ),
+  secondary: (
+    border: $accent,
+    color: $accent,
+  ),
+  secondary_dark-text: (
+    border: $accent,
+    color: $accent,
+    hover-bg: $accent,
+    hover-color: $text-accent-dark,
+  ),
+);
+
+.cta {
+  display: inline-block;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 2px;
+  font-size: $text-base;
+  font-size: $text-xs;
+  font-weight: $text-semi-bold;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-align: center;
+
+  @each $name, $props in $cta-variants {
+    &__#{$name} {
+      @if map.has-key($props, bg) {
+        background-color: map.get($props, bg);
+      }
+      @if map.has-key($props, border) {
+        border: 1px solid;
+        border-color: map.get($props, border);
+      }
+
+      color: map.get($props, color);
+
+      &:hover {
+        @if map.has-key($props, hover-bg) {
+          background-color: map.get($props, hover-bg);
+        }
+        @if map.has-key($props, hover-color) {
+          color: map.get($props, hover-color);
+        }
+
+        box-shadow: 0 0 8px $gray-600;
+      }
+    }
+  }
+}

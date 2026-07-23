@@ -39,7 +39,7 @@ export type FilmISOsKeys = keyof typeof FilmISOs;
 
 // Badges
 export enum FilmBadgeColors {
-  gold = 'film-gold',
+  gold = 'accent-glow',
   bw = 'gray-400',
 }
 
