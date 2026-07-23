@@ -22,15 +22,18 @@ import Cta from '@ui/cta/cta.astro';
 <style lang="scss">
   .header {
     @include position(fixed, 0, 0, 0, 0, 100);
+    width: 100%;
+    background: $bg-header;
+    backdrop-filter: blur(12px);
     height: $header-height-lg;
+    border-bottom: 1px solid $border-10;
+    box-shadow: 0px 4px 10px 1px $border-10;
+    padding: 24px 60px;
 
     nav {
       @include flex-layout(center, space-between);
-      padding: 24px 60px;
-      background: $bg-header;
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid $border-10;
-      box-shadow: 0px 4px 10px 1px $border-10;
+      max-width: $max-width;
+      margin: 0 auto;
 
       .nav {
         &-logo {
