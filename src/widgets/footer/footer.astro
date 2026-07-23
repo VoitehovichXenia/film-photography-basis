@@ -45,7 +45,7 @@ const { logo, links, personal, licence } = footerContent;
     @include grid-layout(repeat(3, 1fr), repeat(2, auto), $col-gap: 40px);
     grid-template-areas: 'logo nav author' 'bottom bottom bottom';
     align-items: end;
-    border-top: 1px solid $neutral-10;
+    border-top: 1px solid $border-10;
     padding: 80px 60px 60px;
     max-width: $max-width;
     margin: 0 auto;
@@ -62,7 +62,7 @@ const { logo, links, personal, licence } = footerContent;
     &__tagline {
       margin-top: 8px;
       font-size: $text-xs;
-      color: $gray-600;
+      color: $text-subtle;
       line-height: $text-xs--line-height;
     }
 
@@ -75,11 +75,11 @@ const { logo, links, personal, licence } = footerContent;
         font-size: $text-xs;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: $gray-600;
+        color: $text-subtle;
         transition: color 0.2s;
 
         &:hover {
-          color: $neutral-15;
+          color: $text-subtle-hover;
         }
       }
     }
@@ -112,10 +112,10 @@ const { logo, links, personal, licence } = footerContent;
       max-width: $max-width;
       margin: 0 auto;
       padding: 24px 60px;
-      border-top: 1px solid $neutral-10;
+      border-top: 1px solid $border-10;
       font-family: $font-mono;
       font-size: $text-xs;
-      color: $gray-600;
+      color: $text-subtle;
       letter-spacing: 0.06em;
 
       ul {
