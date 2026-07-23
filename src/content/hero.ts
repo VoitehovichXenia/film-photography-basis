@@ -13,7 +13,7 @@ export const heroContent: HeroProps & { cta: CtaProps[] } = {
   sideText: 'FILM',
   image: {
     src: heroImage as ImageMetadata,
-    alt: 'Film photo example authored by Ksenya Voitekhovich in 2026',
+    alt: 'Film photo authored by Ksenya Voitekhovich, 2026, Olympus OM-1, Kodak color plus 200',
   },
   cta: [
     {

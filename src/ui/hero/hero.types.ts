@@ -1,4 +1,4 @@
-import type { ImageMetadata } from 'astro';
+import type { LocalImageProps } from 'astro:assets';
 
 export interface HeroProps {
   title: string;
@@ -6,8 +6,5 @@ export interface HeroProps {
   subtitle: string;
   description: string;
   sideText: string;
-  image: {
-    src: ImageMetadata;
-    alt: string;
-  };
+  image: LocalImageProps;
 }
