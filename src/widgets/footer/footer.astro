@@ -42,9 +42,8 @@ const { logo, links, personal, licence } = footerContent;
 
 <style lang="scss">
   .footer {
-    @include grid-layout(repeat(3, 1fr), repeat(2, auto), $col-gap: 40px);
-    grid-template-areas: 'logo nav author' 'bottom bottom bottom';
-    align-items: end;
+    @include grid-layout(repeat(3, 1fr), repeat(2, auto), 40px, 0, 'logo nav author' 'bottom bottom bottom');
+    @include items-align(end);
     border-top: 1px solid $border-10;
     padding: 80px 60px 60px;
     max-width: $max-width;

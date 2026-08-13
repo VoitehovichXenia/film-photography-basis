@@ -19,24 +19,22 @@
   &__background-image {
     position: absolute;
     z-index: -1;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     object-fit: cover;
   }
 
   &__container {
-    @include grid-layout(auto 360px, auto);
+    @include grid-layout(auto 360px, auto, 0, 0, 'content-block side-block');
     position: relative;
-    grid-template-areas: 'content-block side-block';
-    width: 100%;
+    width: 100vw;
     height: 100%;
     max-width: $max-width;
     margin: 0 auto;
     padding: $spacing-xxl $spacing-s;
 
     @media (max-width: $breakpoint-md) {
-      @include grid-layout(auto, auto auto);
-      grid-template-areas: 'content-block' 'side-block';
+      @include grid-layout(auto, auto auto, 0, 0, 'content-block' 'side-block');
       padding: $spacing-lg $spacing-s;
     }
   }

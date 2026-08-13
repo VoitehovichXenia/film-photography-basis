@@ -16,4 +16,8 @@ body {
   padding-top: $header-height-lg;
   background-color: $bg-main;
   font-family: $font-sans;
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: $header-height-md;
+  }
 }

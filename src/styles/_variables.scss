@@ -20,6 +20,7 @@ $white: #fff;
 $white-95: #ffffffbf;
 $cream-50-95: #faf8f4f2;
 $cream-50-80: #faf8f4cc;
+$cream-50-90: #faf8f4e2;
 
 // Neutrals — gray scale
 $gray-50: #e9e9e8;
@@ -42,6 +43,7 @@ $text-subtle-hover: $ink-950;
 $bg-main: $cream-50-95;
 $bg-main-dark: $black;
 $bg-header: $cream-50-80;
+$bg-header-side-menu: $cream-50-90;
 $bg-extra-light: $white;
 $bg-gray-light: $gray-400;
 
@@ -58,6 +60,7 @@ $breakpoint-xxl: 1400px;
 
 $max-width: 1320px;
 $header-height-lg: 88px;
+$header-height-md: 70px;
 
 $spacing-xxs: 8px;
 $spacing-xs: 16px;
