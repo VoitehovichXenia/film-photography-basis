@@ -22,6 +22,12 @@ $cta-variants: (
     hover-bg: $accent,
     hover-color: $text-accent-dark,
   ),
+  icon-primary: (
+    hover-animation: 0.5s ease-in-out 0s 1 normal forwards icon__slide,
+    box-shadow: none,
+    hover-filter: brightness(0) saturate(100%) invert(19%) sepia(32%) saturate(17%)
+      hue-rotate(96deg) brightness(101%) contrast(87%),
+  ),
 );
 
 .cta {
@@ -35,6 +41,10 @@ $cta-variants: (
   text-decoration: none;
   transition: all 0.3s;
   text-align: center;
+  background-color: transparent;
+  @media (max-width: $breakpoint-md) {
+    padding: 8px 16px;
+  }
 
   @each $name, $props in $cta-variants {
     &__#{$name} {
@@ -46,7 +56,9 @@ $cta-variants: (
         border-color: map.get($props, border);
       }
 
-      color: map.get($props, color);
+      @if map.has-key($props, color) {
+        color: map.get($props, color);
+      }
 
       &:hover {
         @if map.has-key($props, hover-bg) {
@@ -55,9 +67,30 @@ $cta-variants: (
         @if map.has-key($props, hover-color) {
           color: map.get($props, hover-color);
         }
+        @if map.has-key($props, box-shadow) {
+          box-shadow: map.get($props, box-shadow);
+        } @else {
+          box-shadow: 0 0 8px $gray-600;
+        }
 
-        box-shadow: 0 0 8px $gray-600;
+        & svg.icon {
+          @if map.has-key($props, hover-animation) {
+            animation: map.get($props, hover-animation);
+          }
+          @if map.has-key($props, hover-filter) {
+            filter: map.get($props, hover-filter);
+          }
+        }
       }
     }
+  }
+}
+
+@keyframes icon__slide {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scaleX(-1);
   }
 }

@@ -1,0 +1,15 @@
+---
+import { Icon } from 'astro-icon/components';
+import { type IconProps, ICONS_SIZES } from './icon.types';
+import './icon.scss';
+
+const { name, size, className, kind = 'default' } = Astro.props as IconProps;
+---
+
+<Icon
+    name={name}
+    size={ICONS_SIZES[size]}
+    width={ICONS_SIZES[size]}
+    height={ICONS_SIZES[size]}
+    class:list={['icon', `icon__${kind}`, className]}
+/>
