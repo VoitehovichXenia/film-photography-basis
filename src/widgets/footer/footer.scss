@@ -6,7 +6,7 @@
     0,
     'logo nav author' 'bottom bottom bottom'
   );
-  @include items-align(end);
+  @include grid-items-align(end);
   border-top: 1px solid $border-10;
   padding: 80px 60px 60px;
   max-width: $max-width;
@@ -22,7 +22,7 @@
 
     @media (max-width: $breakpoint-md) {
       @include flex-layout(column);
-      @include items-align(center, center);
+      @include flex-items-align(center, center);
     }
   }
 
@@ -43,7 +43,7 @@
   &__nav {
     grid-area: nav;
     @include flex-layout(column, $row-gap: 12px);
-    @include items-align(flex-start, center);
+    @include flex-items-align(flex-start, center);
 
     &-link {
       display: block;
@@ -75,7 +75,7 @@
 
     @media (max-width: $breakpoint-md) {
       @include flex-layout(column);
-      @include items-align(center, center);
+      @include flex-items-align(center, center);
     }
 
     &-name {
@@ -96,7 +96,7 @@
 
     &-contacts {
       @include flex-layout($col-gap: 16px);
-      @include items-align(center, flex-end);
+      @include flex-items-align(center, flex-end);
       margin-top: 16px;
     }
 
@@ -107,7 +107,7 @@
   }
 
   &__bottom {
-    @include items-align(center, space-between);
+    @include flex-items-align(center, space-between);
     grid-area: bottom;
     max-width: $max-width;
     margin: 0 auto;
@@ -126,7 +126,7 @@
 
     ul {
       @include flex-layout($col-gap: 4px);
-      @include items-align(stretch, center);
+      @include flex-items-align(stretch, center);
       flex-wrap: wrap;
     }
   }

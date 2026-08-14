@@ -6,6 +6,11 @@
   flex-wrap: $wrap;
 }
 
+@mixin flex-items-align($align: initial, $justify: initial) {
+  align-items: $align;
+  justify-content: $justify;
+}
+
 /* Grid */
 @mixin grid-layout($columns: auto, $rows: auto, $col-gap: 0, $row-gap: 0, $areas: none) {
   display: grid;
@@ -21,11 +26,9 @@
   justify-self: $justify;
 }
 
-/* Alignment for flexbox and grid */
-@mixin items-align($align: center, $justify: center, $content: initial) {
-  align-items: $align;
+@mixin grid-items-align($align: center, $justify: center, $content: initial) {
+  @include flex-items-align($align, $content);
   justify-items: $justify;
-  justify-content: $content;
 }
 
 /* Position */

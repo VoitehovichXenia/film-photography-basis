@@ -91,7 +91,7 @@
 
   &__cta-container {
     @include flex-layout($col-gap: 12px, $row-gap: 12px);
-    @include items-align(center, flex-start);
+    @include flex-items-align(center, flex-start);
 
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
@@ -101,7 +101,7 @@
 
   &__subtitle {
     @include flex-layout($col-gap: 16px);
-    @include items-align(center, flex-start);
+    @include flex-items-align(center, flex-start);
     margin-bottom: 28px;
     font-family: $font-mono;
     font-size: $text-xxs;
