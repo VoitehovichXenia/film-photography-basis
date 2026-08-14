@@ -4,7 +4,7 @@ import { Cta } from '@ui/cta';
 import './header.scss';
 ---
 
-<header class="header">
+<header class="header" id="header">
   <div class="nav-container">
     <button class="nav-logo" id="nav-logo">{headerContent.logo}</button>
     <nav class="nav-menu">
@@ -35,14 +35,23 @@ import './header.scss';
     });
   }
 
+  
   const navLogo = document.getElementById('nav-logo');
   navLogo?.addEventListener('click', scrollToTheTop);
 
   function toggleMenu(e: Event) {
+    // Add styles to toggle button
     const currentTarget = e.currentTarget as HTMLButtonElement;
     currentTarget?.classList.toggle('expanded');
-    const menu = document.querySelector('.nav-menu');
+
+    // Add styles to menu
+    const header = document.getElementById('header');
+    const menu = header?.querySelector('.nav-menu');
     menu?.classList.toggle('expanded');
+    header?.classList.toggle('expanded');
+
+    // Disable body scroll
+    document.body.classList.toggle('no-scroll');
   }
 
   const menuCta = document.querySelector('.toggle-menu-cta');

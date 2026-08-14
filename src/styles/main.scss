@@ -21,3 +21,8 @@ body {
     padding-top: $header-height-md;
   }
 }
+
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}

@@ -9,17 +9,22 @@ $header-padding-left-md: 24px;
   width: 100%;
   height: $header-height-lg;
   padding: $header-padding-y-lg $header-padding-x-lg;
-  background: $bg-header;
+  background: $bg-header-side-menu;
   border-bottom: 1px solid $border-10;
   backdrop-filter: blur(12px);
   box-shadow: 0px 4px 10px 1px $border-10;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &.expanded {
+    box-shadow: none;
+  }
 
   @media (max-width: $breakpoint-md) {
     width: 100vw;
     height: $header-height-md;
     padding: $header-padding-y-md $header-padding-right-md $header-padding-y-md
       $header-padding-left-md;
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
 }
 
@@ -61,10 +66,13 @@ $header-padding-left-md: 24px;
   margin: 0 auto;
   @media (max-width: $breakpoint-md) {
     @include position-absolute($top: $header-height-md, $left: 100vw, $zIndex: 100);
-    @include grid-layout(1fr, auto, 0, 0, 'nav-links' 'cta');
+    @include grid-layout(1fr, auto, 0, 32px, 'nav-links' 'cta');
     @include grid-items-align(center, center, center);
+    padding: 32px 24px;
     height: calc(100vh - $header-height-md);
-    background: $bg-header-side-menu;
+    overflow-y: auto;
+    background: $bg-header;
+    backdrop-filter: blur(12px);
     transition:
       left 0.3s ease-in-out,
       opacity 0.3s ease-in-out;
