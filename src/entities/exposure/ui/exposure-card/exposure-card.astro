@@ -31,7 +31,8 @@ const { title, description, step, theme = 'light', className } = Astro.props as 
     }
 
     &__text-content {
-      @include flex-layout(flex-start, center, column, 0, 8px);
+      @include flex-layout(column, $row-gap: 8px);
+      @include items-align(flex-start, center);
     }
 
     &__title {

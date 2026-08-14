@@ -1,3 +1,12 @@
+/* Flexbox*/
+@mixin flex-layout($dir: row, $col-gap: 0, $row-gap: 0, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $dir;
+  gap: $row-gap $col-gap;
+  flex-wrap: $wrap;
+}
+
+/* Grid */
 @mixin grid-layout($columns: auto, $rows: auto, $col-gap: 0, $row-gap: 0, $areas: none) {
   display: grid;
   grid-template-columns: $columns;
@@ -7,25 +16,19 @@
   row-gap: $row-gap;
 }
 
+@mixin grid-align-self($align: inherit, $justify: inherit) {
+  align-self: $align;
+  justify-self: $justify;
+}
+
+/* Alignment for flexbox and grid */
 @mixin items-align($align: center, $justify: center, $content: initial) {
   align-items: $align;
   justify-items: $justify;
   justify-content: $content;
 }
 
-@mixin grid-align-self($align: inherit, $justify: inherit) {
-  align-self: $align;
-  justify-self: $justify;
-}
-
-@mixin flex-layout($align: center, $justify: center, $dir: row, $col-gap: 0, $row-gap: 0) {
-  display: flex;
-  flex-direction: $dir;
-  align-items: $align;
-  justify-content: $justify;
-  gap: $row-gap $col-gap;
-}
-
+/* Position */
 @mixin position($pos, $top: unset, $left: unset, $right: unset, $bottom: unset, $zIndex: 0) {
   position: $pos;
   top: $top;
@@ -33,4 +36,16 @@
   right: $right;
   bottom: $bottom;
   z-index: $zIndex;
+}
+
+@mixin position-absolute($top: unset, $left: unset, $right: unset, $bottom: unset, $zIndex: 0) {
+  @include position(absolute, $top, $left, $right, $bottom, $zIndex);
+}
+
+@mixin position-fixed($top: unset, $left: unset, $right: unset, $bottom: unset, $zIndex: 0) {
+  @include position(fixed, $top, $left, $right, $bottom, $zIndex);
+}
+
+@mixin position-relative($top: unset, $left: unset, $right: unset, $bottom: unset, $zIndex: 0) {
+  @include position(relative, $top, $left, $right, $bottom, $zIndex);
 }
