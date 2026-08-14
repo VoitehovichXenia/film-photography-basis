@@ -107,6 +107,7 @@
   }
 
   &__bottom {
+    @include flex-layout();
     @include flex-items-align(center, space-between);
     grid-area: bottom;
     max-width: $max-width;
