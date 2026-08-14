@@ -1,3 +1,10 @@
+$footer-padding-top-lg: 80px;
+$footer-padding-bottom-lg: 60px;
+$footer-padding-x-lg: 60px;
+$footer-padding-top-md: 40px;
+$footer-padding-bottom-md: 24px;
+$footer-padding-x-md: 24px;
+
 .footer {
   @include grid-layout(
     repeat(3, 1fr),
@@ -8,21 +15,25 @@
   );
   @include grid-items-align(end);
   border-top: 1px solid $border-10;
-  padding: 80px 60px 60px;
-  max-width: $max-width;
+  padding: $footer-padding-top-lg $footer-padding-x-lg $footer-padding-bottom-lg;
+  max-width: calc($max-width + $footer-padding-x-lg * 2);
   margin: 0 auto;
 
   @media (max-width: $breakpoint-md) {
     @include grid-layout(1fr, repeat(4, auto), 0, 32px, 'logo' 'nav' 'author' 'bottom');
-    padding: 40px 24px 24px;
+    padding: $footer-padding-top-md $footer-padding-x-md $footer-padding-bottom-md;
   }
 
   &__logo-block {
     grid-area: logo;
+    @include grid-align-self($justify: start);
 
     @media (max-width: $breakpoint-md) {
+      @include grid-align-self($justify: inherit);
       @include flex-layout(column);
       @include flex-items-align(center, center);
+
+      text-align: center;
     }
   }
 
@@ -71,9 +82,11 @@
 
   &__author {
     grid-area: author;
+    @include grid-align-self($justify: end);
     text-align: right;
 
     @media (max-width: $breakpoint-md) {
+      @include grid-align-self($justify: inherit);
       @include flex-layout(column);
       @include flex-items-align(center, center);
     }
@@ -107,11 +120,12 @@
   }
 
   &__bottom {
+    @include flex-layout();
     @include flex-items-align(center, space-between);
     grid-area: bottom;
-    max-width: $max-width;
+    max-width: calc($max-width + $footer-padding-x-lg * 2);
     margin: 0 auto;
-    padding: 24px 60px;
+    padding: 24px $footer-padding-x-lg;
     border-top: 1px solid $border-10;
     font-family: $font-mono;
     font-size: $text-xs;
@@ -119,8 +133,8 @@
     letter-spacing: 0.06em;
 
     @media (max-width: $breakpoint-md) {
-      flex-direction: column;
-      padding: 16px 24px;
+      @include flex-layout(column, $row-gap: 4px);
+      padding: 16px $footer-padding-x-md;
       text-align: center;
     }
 
