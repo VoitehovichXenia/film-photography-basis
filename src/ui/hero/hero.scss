@@ -18,15 +18,18 @@
 
   &__background-image {
     @include position-absolute($zIndex: -1);
-    // position: absolute;
     inset: 0;
-    // z-index: -1;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: -5px top;
+    object-position: left top;
     pointer-events: none;
+
+    @media (max-width: $breakpoint-md) {
+      object-position: -5px top;
+      width: 100vw;
+    }
 
     &.blur-image {
       transition: opacity 0.4s ease-out;
@@ -73,9 +76,6 @@
 
   &__side-block {
     @include position-absolute($right: 0, $top: calc($header-height-lg + 20%));
-    // position: absolute;
-    // right: 0;
-    // top: calc($header-height-lg + 20%);
     align-self: end;
     font-family: $font-serif;
     font-weight: $text-bold;
