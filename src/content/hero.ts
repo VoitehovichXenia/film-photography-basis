@@ -1,8 +1,8 @@
-import heroImage from '@assets/hero_image.JPG';
+import heroImage from '@assets/hero_image.jpeg';
 import type { ImageMetadata } from 'astro';
 
-import type { HeroProps } from '@ui/hero/hero.types';
-import { CtaVariants, type CtaProps } from '@ui/cta/cta.types';
+import type { HeroProps } from '@ui/hero';
+import { CtaVariants, type CtaProps } from '@ui/cta';
 import { SECTIONS_IDS } from '@content/data/sections';
 
 export const heroContent: HeroProps & { cta: CtaProps[] } = {
@@ -19,13 +19,13 @@ export const heroContent: HeroProps & { cta: CtaProps[] } = {
     {
       id: 'get-started',
       text: 'Start from scratch',
-      url: `#${SECTIONS_IDS.GetStarted}`,
+      href: `#${SECTIONS_IDS.GetStarted}`,
       kind: CtaVariants.primaryDarkText,
     },
     {
       id: 'calculator-cta',
       text: 'Calculate exposition',
-      url: `#${SECTIONS_IDS.ExpousureCalculator}`,
+      href: `#${SECTIONS_IDS.ExpousureCalculator}`,
       kind: CtaVariants.secondaryDarkText,
     },
   ],

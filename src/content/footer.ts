@@ -1,6 +1,7 @@
+import { ICON_NAMES } from '@ui/icon';
+import type { CtaLinkProps } from '@ui/cta';
 import { SECTIONS_IDS } from './data/sections';
 
-type Link = { href: `http${string}`; label: string };
 type NavLink = { href: `#${SECTIONS_IDS}`; label: string };
 
 type FooterContent = {
@@ -12,7 +13,7 @@ type FooterContent = {
   personal: {
     fullName: string;
     position: string;
-    contacts: Link[];
+    contacts: Omit<CtaLinkProps, 'kind'>[];
     techStack: string[];
   };
   licence: string;
@@ -35,8 +36,22 @@ export const footerContent: FooterContent = {
     fullName: 'Ksenya Voitekhovich',
     position: 'Senior Frontend developer',
     contacts: [
-      { href: 'https://github.com/VoitehovichXenia', label: 'Github' },
-      { href: 'https://www.linkedin.com/in/ksenya-voitekhovich/', label: 'Linkedin' },
+      {
+        id: 'github',
+        href: 'https://github.com/VoitehovichXenia',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        text: 'Github',
+        icon: { name: ICON_NAMES.github },
+      },
+      {
+        id: 'linkedin',
+        href: 'https://www.linkedin.com/in/ksenya-voitekhovich/',
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        text: 'Linkedin',
+        icon: { name: ICON_NAMES.linkedin },
+      },
     ],
     techStack: ['React', 'Next.js', 'TypeScript', 'Web Components'],
   },

@@ -1,0 +1,128 @@
+.footer {
+  @include grid-layout(
+    repeat(3, 1fr),
+    repeat(2, auto),
+    40px,
+    0,
+    'logo nav author' 'bottom bottom bottom'
+  );
+  @include items-align(end);
+  border-top: 1px solid $border-10;
+  padding: 80px 60px 60px;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-md) {
+    @include grid-layout(1fr, repeat(4, auto), 0, 32px, 'logo' 'nav' 'author' 'bottom');
+    padding: 40px 24px 24px;
+  }
+
+  &__logo-block {
+    grid-area: logo;
+
+    @media (max-width: $breakpoint-md) {
+      @include flex-layout(center, center, column);
+    }
+  }
+
+  &__logo {
+    font-family: $font-serif;
+    font-size: $text-lg;
+    font-weight: $text-light;
+    text-transform: uppercase;
+  }
+
+  &__tagline {
+    margin-top: 8px;
+    font-size: $text-xs;
+    color: $text-subtle;
+    line-height: $text-xs--line-height;
+  }
+
+  &__nav {
+    grid-area: nav;
+    @include flex-layout(flex-start, center, column, 0, 12px);
+
+    &-link {
+      display: block;
+      font-size: $text-xs;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $text-subtle;
+      transition: color 0.2s;
+
+      @media (max-width: $breakpoint-md) {
+        font-size: $text-base;
+        color: $text-accent-dark;
+        &:active {
+          color: $accent;
+        }
+      }
+
+      @media (min-width: $breakpoint-md) {
+        &:hover {
+          color: $text-subtle-hover;
+        }
+      }
+    }
+  }
+
+  &__author {
+    grid-area: author;
+    text-align: right;
+
+    @media (max-width: $breakpoint-md) {
+      @include flex-layout(center, center, column);
+    }
+
+    &-name {
+      font-family: $font-serif;
+      font-weight: $text-light;
+      font-size: $text-md;
+      margin-bottom: 4px;
+    }
+
+    &-position {
+      font-family: $font-mono;
+      font-size: $text-xxs;
+      font-weight: $text-light;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: $accent;
+    }
+
+    &-contacts {
+      @include flex-layout(center, flex-end, row, 16px);
+      margin-top: 16px;
+    }
+
+    &-contact {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__bottom {
+    @include flex-layout(center, space-between);
+    grid-area: bottom;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 24px 60px;
+    border-top: 1px solid $border-10;
+    font-family: $font-mono;
+    font-size: $text-xs;
+    color: $text-subtle;
+    letter-spacing: 0.06em;
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+      padding: 16px 24px;
+      text-align: center;
+    }
+
+    ul {
+      @include flex-layout(stretch, center, row, 4px);
+      flex-wrap: wrap;
+    }
+  }
+}

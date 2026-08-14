@@ -1,5 +1,7 @@
 ---
 import { footerContent } from '@content/footer';
+import { Cta } from '@ui/cta';
+import './footer.scss';
 
 const { logo, links, personal, licence } = footerContent;
 ---
@@ -22,7 +24,14 @@ const { logo, links, personal, licence } = footerContent;
     <h2 class="footer__author-name">{personal.fullName}</h2>
     <h3 class="footer__author-position">{personal.position}</h3>
     <nav class="footer__author-contacts">
-      {personal.contacts.map((link) => <a href={link.href}>{link.label} →</a>)}
+      {personal.contacts.map((link) => (
+      <Cta
+        {...link}
+        kind="link"
+        icon={{ ...link.icon, size: 'sm', kind: 'primary' }}
+        className="footer__author-contact"
+      />
+      ))}
     </nav>
   </div>
 </footer>
@@ -39,89 +48,3 @@ const { logo, links, personal, licence } = footerContent;
     }
   </ul>
 </div>
-
-<style lang="scss">
-  .footer {
-    @include grid-layout(repeat(3, 1fr), repeat(2, auto), 40px, 0, 'logo nav author' 'bottom bottom bottom');
-    @include items-align(end);
-    border-top: 1px solid $border-10;
-    padding: 80px 60px 60px;
-    max-width: $max-width;
-    margin: 0 auto;
-
-    &__logo-block {
-      grid-area: logo;
-    }
-    &__logo {
-      font-family: $font-serif;
-      font-size: $text-lg;
-      font-weight: $text-light;
-      text-transform: uppercase;
-    }
-    &__tagline {
-      margin-top: 8px;
-      font-size: $text-xs;
-      color: $text-subtle;
-      line-height: $text-xs--line-height;
-    }
-
-    &__nav {
-      grid-area: nav;
-      @include flex-layout(flex-start, center, column, 0, 12px);
-
-      &-link {
-        display: block;
-        font-size: $text-xs;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: $text-subtle;
-        transition: color 0.2s;
-
-        &:hover {
-          color: $text-subtle-hover;
-        }
-      }
-    }
-    &__author {
-      grid-area: author;
-      text-align: right;
-
-      &-name {
-        font-family: $font-serif;
-        font-weight: $text-light;
-        font-size: $text-md;
-        margin-bottom: 4px;
-      }
-      &-position {
-        font-family: $font-mono;
-        font-size: $text-xxs;
-        font-weight: $text-light;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: $accent;
-      }
-      &-contacts {
-        @include flex-layout(center, flex-end, row, 16px);
-        margin-top: 16px;
-      }
-    }
-    &__bottom {
-      @include flex-layout(center, space-between);
-      grid-area: bottom;
-      max-width: $max-width;
-      margin: 0 auto;
-      padding: 24px 60px;
-      border-top: 1px solid $border-10;
-      font-family: $font-mono;
-      font-size: $text-xs;
-      color: $text-subtle;
-      letter-spacing: 0.06em;
-
-      ul {
-        list-style-type: none;
-        display: flex;
-        gap: 4px;
-      }
-    }
-  }
-</style>

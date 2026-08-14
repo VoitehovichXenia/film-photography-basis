@@ -1,25 +1,29 @@
 ---
-import { type CtaProps, CtaIconKinds } from './cta.types';
+import type { CtaProps, CtaLinkProps, CtaButtonProps } from './cta.types';
+import { CtaIconKinds } from './cta.types';
 import { Icon } from '@ui/icon';
 import './cta.scss';
 
-const { text, url, kind, icon, className } = Astro.props as CtaProps;
+const { kind, icon, className, } = Astro.props as CtaProps;
+const { href, target, rel } = Astro.props as CtaLinkProps;
+const { text } = Astro.props as CtaButtonProps;
+console.log(text,target, rel);
 
 const iconKind = CtaIconKinds[kind] || CtaIconKinds.default;
 const classList = ['cta', `cta__${kind}`, className];
 ---
 
 {
-  url 
+  href 
   ? (
-    <a class:list={classList} href={url}>
-      {text}
+    <a class:list={classList} href={href} target={target} rel={rel}>
+      <span class="cta__text">{text}</span>
       {icon && <Icon {...icon} kind={iconKind} />}
     </a>
   )
   : (
     <button class:list={classList}>
-      {text}
+      <span class="cta__text">{text}</span>
       {icon && <Icon {...icon} kind={iconKind} />}
     </button>
   )

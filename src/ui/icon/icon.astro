@@ -1,9 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { type IconProps, ICONS_SIZES } from './icon.types';
+import type { IconProps } from './icon.types';
+import { ICONS_SIZES } from './icon.const';
 import './icon.scss';
 
-const { name, size, className, kind = 'default' } = Astro.props as IconProps;
+const { name, size = 'md', className, kind = 'default' } = Astro.props as IconProps;
 ---
 
 <Icon
