@@ -1,6 +1,6 @@
 ---
-import Hero from '@ui/hero/hero.astro';
-import Cta from '@ui/cta/cta.astro';
+import { Hero } from '@ui/hero';
+import { Cta } from '@ui/cta';
 
 import { heroContent } from '@content/hero';
 
@@ -9,6 +9,6 @@ const  { cta, ...hero } = heroContent
 
 <Hero {...hero}>
   {cta?.map((item) => (
-    <Cta slot="cta" id={item.id} text={item.text} url={item.url} kind={item.kind} />
+    <Cta slot="cta" {...item} />
   ))}
 </Hero>

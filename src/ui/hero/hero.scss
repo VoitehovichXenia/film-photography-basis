@@ -7,7 +7,7 @@
 }
 
 .hero {
-  position: relative;
+  @include position-relative();
   min-height: calc(100vh - $header-height-lg);
   color: $text-accent;
 
@@ -17,26 +17,39 @@
   }
 
   &__background-image {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
+    @include position-absolute($zIndex: -1);
+    // position: absolute;
+    inset: 0;
+    // z-index: -1;
+    width: 100vw;
     height: 100%;
+    display: block;
     object-fit: cover;
+    object-position: -5px top;
+    pointer-events: none;
+
+    &.blur-image {
+      transition: opacity 0.4s ease-out;
+    }
+  }
+
+  &_image-ready {
+    .blur-image {
+      opacity: 0;
+    }
   }
 
   &__container {
-    @include grid-layout(auto 360px, auto);
-    position: relative;
-    grid-template-areas: 'content-block side-block';
-    width: 100%;
+    @include grid-layout(auto 360px, auto, 0, 0, 'content-block side-block');
+    @include position-relative();
+    width: 100vw;
     height: 100%;
     max-width: $max-width;
     margin: 0 auto;
     padding: $spacing-xxl $spacing-s;
 
     @media (max-width: $breakpoint-md) {
-      @include grid-layout(auto, auto auto);
-      grid-template-areas: 'content-block' 'side-block';
+      @include grid-layout(auto, auto auto, 0, 0, 'content-block' 'side-block');
       padding: $spacing-lg $spacing-s;
     }
   }
@@ -59,9 +72,10 @@
   }
 
   &__side-block {
-    position: absolute;
-    right: 0;
-    top: calc($header-height-lg + 20%);
+    @include position-absolute($right: 0, $top: calc($header-height-lg + 20%));
+    // position: absolute;
+    // right: 0;
+    // top: calc($header-height-lg + 20%);
     align-self: end;
     font-family: $font-serif;
     font-weight: $text-bold;
@@ -76,7 +90,8 @@
   }
 
   &__cta-container {
-    @include flex-layout(center, flex-start, row, 12px, 12px);
+    @include flex-layout($col-gap: 12px, $row-gap: 12px);
+    @include flex-items-align(center, flex-start);
 
     @media (max-width: $breakpoint-md) {
       flex-direction: column;
@@ -85,7 +100,8 @@
   }
 
   &__subtitle {
-    @include flex-layout(center, flex-start, row, 16px);
+    @include flex-layout($col-gap: 16px);
+    @include flex-items-align(center, flex-start);
     margin-bottom: 28px;
     font-family: $font-mono;
     font-size: $text-xxs;

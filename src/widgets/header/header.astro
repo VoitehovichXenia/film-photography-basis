@@ -1,63 +1,50 @@
 ---
 import { headerContent } from '@content/header';
-import Cta from '@ui/cta/cta.astro';
+import { Cta } from '@ui/cta';
+import './header.scss';
 ---
 
 <header class="header">
-  <nav>
-    <div class="nav-logo">{headerContent.logo}</div>
-    <ul class="nav-links">
-      {
-        headerContent.navLinks.map((link) => (
-          <li>
-            <a href={link.href}>{link.label}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <Cta {...headerContent.cta} />
-  </nav>
+  <div class="nav-container">
+    <button class="nav-logo" id="nav-logo">{headerContent.logo}</button>
+    <nav class="nav-menu">
+      <ul class="nav-links">
+        {
+          headerContent.navLinks.map((link) => (
+            <li class="nav-link">
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <Cta {...headerContent.cta} className="menu-cta" />
+    </nav>
+    <Cta
+      kind="icon-primary"
+      icon={{ name: 'menu', size: 'lg', kind: 'primary' }}
+      className="toggle-menu-cta"
+    />
+  </div>
 </header>
 
-<style lang="scss">
-  .header {
-    @include position(fixed, 0, 0, 0, 0, 100);
-    height: $header-height-lg;
-
-    nav {
-      @include flex-layout(center, space-between);
-      padding: 24px 60px;
-      background: $bg-header;
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid $border-10;
-      box-shadow: 0px 4px 10px 1px $border-10;
-
-      .nav {
-        &-logo {
-          font-family: $font-serif;
-          font-size: $text-md;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-        }
-
-        &-links {
-          @include flex-layout(center, space-between, row, 36px, 0);
-          list-style-type: none;
-
-          li a {
-            font-size: $text-xs;
-            color: $text-subtle;
-            text-decoration: none;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: color 0.2s;
-
-            &:hover {
-              color: $text-subtle-hover;
-            }
-          }
-        }
-      }
-    }
+<script>
+  function scrollToTheTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
-</style>
+
+  const navLogo = document.getElementById('nav-logo');
+  navLogo?.addEventListener('click', scrollToTheTop);
+
+  function toggleMenu(e: Event) {
+    const currentTarget = e.currentTarget as HTMLButtonElement;
+    currentTarget?.classList.toggle('expanded');
+    const menu = document.querySelector('.nav-menu');
+    menu?.classList.toggle('expanded');
+  }
+
+  const menuCta = document.querySelector('.toggle-menu-cta');
+  menuCta?.addEventListener('click', toggleMenu);
+</script>

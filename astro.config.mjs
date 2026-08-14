@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import iconPlugin from 'astro-icon';
 
 export default defineConfig({
   vite: {
@@ -13,4 +14,7 @@ export default defineConfig({
       },
     },
   },
+  integrations: [iconPlugin({
+    iconDir: "src/assets/icons",
+  })],
 });

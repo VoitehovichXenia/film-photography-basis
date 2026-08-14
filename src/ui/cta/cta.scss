@@ -22,41 +22,100 @@ $cta-variants: (
     hover-bg: $accent,
     hover-color: $text-accent-dark,
   ),
+  link: (
+    color: $text-accent-dark,
+    hover-color: $accent,
+    active-color: $accent,
+    box-shadow: none,
+    text-after: (
+      background-color: $accent,
+    ),
+  ),
+  icon-primary: (
+    box-shadow: none,
+    color: $accent,
+  ),
 );
 
 .cta {
-  display: inline-block;
-  padding: 14px 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
   border: none;
   border-radius: 2px;
-  font-size: $text-base;
-  font-size: $text-xs;
-  font-weight: $text-semi-bold;
-  text-decoration: none;
   transition: all 0.3s;
-  text-align: center;
+  background-color: transparent;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 8px 16px;
+  }
+
+  &__text {
+    @include position-relative();
+    font-size: $text-base;
+    font-size: $text-xs;
+    font-weight: $text-semi-bold;
+    text-decoration: none;
+    text-align: center;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-radius: 2px;
+      margin: 0 auto;
+      transition: width 0.3s;
+    }
+  }
 
   @each $name, $props in $cta-variants {
     &__#{$name} {
       @if map.has-key($props, bg) {
         background-color: map.get($props, bg);
       }
+
       @if map.has-key($props, border) {
         border: 1px solid;
         border-color: map.get($props, border);
       }
 
-      color: map.get($props, color);
+      @if map.has-key($props, color) {
+        color: map.get($props, color);
+      }
 
-      &:hover {
-        @if map.has-key($props, hover-bg) {
-          background-color: map.get($props, hover-bg);
+      &:active {
+        @if map.has-key($props, active-color) {
+          color: map.get($props, active-color);
         }
-        @if map.has-key($props, hover-color) {
-          color: map.get($props, hover-color);
-        }
+      }
 
-        box-shadow: 0 0 8px $gray-600;
+      @media (min-width: $breakpoint-md) {
+        &:hover {
+          @if map.has-key($props, hover-bg) {
+            background-color: map.get($props, hover-bg);
+          }
+          @if map.has-key($props, hover-color) {
+            color: map.get($props, hover-color);
+          }
+          @if map.has-key($props, text-after) {
+            & .cta__text::after {
+              @include position-absolute($left: 0, $bottom: 0);
+              width: 100%;
+              height: 1px;
+              @each $prop, $value in map.get($props, text-after) {
+                #{$prop}: $value;
+              }
+            }
+          }
+          @if map.has-key($props, box-shadow) {
+            box-shadow: map.get($props, box-shadow);
+          } @else {
+            box-shadow: 0 0 8px $gray-600;
+          }
+        }
       }
     }
   }

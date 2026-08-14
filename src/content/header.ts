@@ -1,4 +1,4 @@
-import type { CtaProps } from '@ui/cta/cta.types';
+import type { CtaProps } from '@ui/cta';
 import { SECTIONS_IDS } from './data/sections';
 
 type HeaderContentProps = {
@@ -22,7 +22,7 @@ export const headerContent: HeaderContentProps = {
   cta: {
     id: 'try-calculator',
     text: 'Try Calculator',
-    url: `#${SECTIONS_IDS.ExpousureCalculator}`,
+    href: `#${SECTIONS_IDS.ExpousureCalculator}`,
     kind: 'primary',
   },
 };
