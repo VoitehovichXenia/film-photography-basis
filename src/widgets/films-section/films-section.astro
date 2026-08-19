@@ -7,16 +7,10 @@ import ISOCard from '@entities/film/ui/iso-card/iso-card.astro';
 import { filmSectionContent as filmsSection } from '@content/films-section';
 import FilmBadge from '@entities/film/ui/film-badge.astro';
 
-const { isoCards, filmTable } = filmsSection;
+const { section, isoCards, filmTable } = filmsSection;
 ---
 
-<Section
-  id={filmsSection.id}
-  title={filmsSection.title}
-  step={filmsSection.step}
-  stepText={filmsSection.stepText}
-  epigraph={filmsSection.epigraph}
->
+<Section {...section}>
   {
     isoCards?.length && (
       <CardGrid slot="content" columns={{ base: isoCards?.length }} colGap="2px">

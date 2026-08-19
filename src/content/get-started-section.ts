@@ -1,20 +1,22 @@
 import type { NavCardProps } from '@ui/card/nav-card/nav-card.types';
 import type { StarterKitCardProps } from '@ui/card/starter-kit-card/starter-kit-card.types';
-import type { SectionProps } from '@ui/section/section.types';
-import { SECTIONS_IDS } from './data/sections';
+import { SECTIONS_IDS, type SectionBlockProps } from './data/sections';
 
-type GetStartedSectionProps = SectionProps & {
+type GetStartedSectionProps = SectionBlockProps & {
   starterKit: StarterKitCardProps[];
   navCards: NavCardProps[];
 };
 
 export const getStartedSectionContent: GetStartedSectionProps = {
-  id: SECTIONS_IDS.GetStarted,
-  step: 1,
-  stepText: 'Start',
-  title: 'All you need for your first shot',
-  epigraph:
-    "Film photography is intimidating because it's seems so difficult, but you only need a little to get started.",
+  section: {
+    id: SECTIONS_IDS.GetStarted,
+    step: 1,
+    stepText: 'Start',
+    title: 'All you need for your first shot',
+    titleAccent: 'first shot',
+    epigraph:
+      "Film photography is intimidating because it's seems so difficult, but you only need a little to get started.",
+  },
   starterKit: [
     {
       id: 'starter-kit-camera',

@@ -1,19 +1,21 @@
-import type { SectionProps } from '@ui/section';
-import { SECTIONS_IDS } from './data/sections';
+import { SECTIONS_IDS, type SectionBlockProps } from './data/sections';
 import type { ExposureCardProps } from '@entities/exposure/ui/exposure-card/exposure-card.types';
 
-type ExposureSectionProps = SectionProps & {
+type ExposureSectionProps = SectionBlockProps & {
   cards: Omit<ExposureCardProps, 'step' | 'theme'>[];
   rule: Omit<ExposureCardProps, 'step'>;
 };
 
 export const exposureSectionContent: ExposureSectionProps = {
-  id: SECTIONS_IDS.Expousure,
-  step: 5,
-  stepText: 'Exposure',
-  title: 'Three parameters, one frame',
-  epigraph:
-    'Proper exposure is a balance of aperture, shutter speed, and ISO. Understanding how they relate means controlling light intentionally.',
+  section: {
+    id: SECTIONS_IDS.Expousure,
+    step: 5,
+    stepText: 'Exposure',
+    title: 'Three parameters, one frame',
+    titleAccent: 'one frame',
+    epigraph:
+      'Proper exposure is a balance of aperture, shutter speed, and ISO. Understanding how they relate means controlling light intentionally.',
+  },
   cards: [
     {
       id: 'aperture',

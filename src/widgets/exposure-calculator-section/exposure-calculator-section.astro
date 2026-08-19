@@ -2,17 +2,13 @@
 import { exposureCalculatorSectionContent as exposureSection } from '@content/exposure-calculator-section';
 import { Section } from '@ui/section';
 import ExposureCalculator from '@features/calculate-exposure/ui/exposure-calculator.astro';
+
+const { section, calculator } = exposureSection;
 ---
 
-<Section
-  id={exposureSection.id}
-  step={exposureSection.step}
-  stepText={exposureSection.stepText}
-  title={exposureSection.title}
-  epigraph={exposureSection.epigraph}
->
+<Section {...section}>
   <ExposureCalculator
     slot="content"
-    {...exposureSection.calculator}
+    {...calculator}
   />
 </Section>

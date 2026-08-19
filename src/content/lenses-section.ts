@@ -1,19 +1,21 @@
-import type { SectionProps } from '@ui/section';
-import { SECTIONS_IDS } from './data/sections';
+import { SECTIONS_IDS, type SectionBlockProps } from './data/sections';
 import type { LensCardProps } from '@entities/lenses/ui/lens-card/lens-card.types';
 import { FilmingObjects } from '@entities/objects/objects.types';
 
-type LensesSectionProps = SectionProps & {
+type LensesSectionProps = SectionBlockProps & {
   cards: LensCardProps[];
 };
 
 export const lensesSectionContent: LensesSectionProps = {
-  id: SECTIONS_IDS.Lenses,
-  step: 3,
-  stepText: 'Lenses',
-  title: 'Lens: the "Eye" of Your Camera',
-  epigraph:
-    'The lens determines not only what ends up in the frame but also how — the angle, perspective, and depth of field.',
+  section: {
+    id: SECTIONS_IDS.Lenses,
+    step: 3,
+    stepText: 'Lenses',
+    title: 'Lens: the "Eye" of Your Camera',
+    titleAccent: 'Your Camera',
+    epigraph:
+      'The lens determines not only what ends up in the frame but also how — the angle, perspective, and depth of field.',
+  },
   cards: [
     {
       id: 'wide-angle',

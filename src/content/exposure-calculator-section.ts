@@ -1,6 +1,5 @@
-import type { SectionProps } from '@ui/section';
 import type { SelectProps } from '@ui/select/select.types';
-import { SECTIONS_IDS } from './data/sections';
+import { SECTIONS_IDS, type SectionBlockProps } from './data/sections';
 import { ISO_STOPS } from '@entities/film/film.types';
 import {
   EV_NUMBERS,
@@ -10,7 +9,7 @@ import {
 } from '@entities/exposure/exposure.types';
 import type { ExposureCalculatorProps } from '@features/calculate-exposure/ui/exposure-calculator.types';
 
-type ExposureCalculatorSectionProps = SectionProps & {
+type ExposureCalculatorSectionProps = SectionBlockProps & {
   calculator: ExposureCalculatorProps;
 };
 
@@ -70,11 +69,14 @@ const shutterSelect: SelectProps = {
 };
 
 export const exposureCalculatorSectionContent: ExposureCalculatorSectionProps = {
-  id: SECTIONS_IDS.ExpousureCalculator,
-  step: 6,
-  stepText: 'calculator',
-  title: 'Exposure Calculator',
-  epigraph: 'Select two known parameters — the third will be calculated automatically.',
+  section: {
+    id: SECTIONS_IDS.ExpousureCalculator,
+    step: 6,
+    stepText: 'calculator',
+    title: 'Exposure Calculator',
+    titleAccent: 'Exposure',
+    epigraph: 'Select two known parameters — the third will be calculated automatically.',
+  },
   calculator: {
     isoSelect,
     evSelect,

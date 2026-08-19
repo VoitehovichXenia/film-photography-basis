@@ -1,6 +1,11 @@
 ---
 import type { SectionProps } from './section.types';
-const { id, step, stepText, title, epigraph, contentClassName } = Astro.props as SectionProps;
+import './section.scss';
+
+const { id, step, stepText, title, titleAccent = '', epigraph, contentClassName } = Astro.props as SectionProps;
+
+const titleAccentHTML = titleAccent ? `<span class="section__title-accent">${titleAccent}</span>` : '';
+const titleHTML = title.replace(titleAccent, titleAccentHTML);
 ---
 
 <section class="section" id={id}>
@@ -8,7 +13,7 @@ const { id, step, stepText, title, epigraph, contentClassName } = Astro.props as
     <div class="section__title-container">
       <p class="section__step">{`${step}`.padStart(2, '0')} - {stepText}</p>
 
-      <h2 class="section__title">{title}</h2>
+      <h2 class="section__title" set:html={titleHTML} />
     </div>
 
     <p class="section__epigraph">
@@ -16,33 +21,7 @@ const { id, step, stepText, title, epigraph, contentClassName } = Astro.props as
     </p>
   </div>
 
-  <div class={contentClassName}>
+  <div class:list={['section__content-container',contentClassName]}>
     <slot name="content" />
   </div>
 </section>
-
-<style lang="scss">
-  .section {
-    scroll-margin-top: calc($header-height-lg + 4px);
-
-    &__header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      grid-template-areas: 'title epigraph';
-      gap: 24px;
-    }
-
-    &__title-container {
-      grid-area: title;
-    }
-
-    &__epigraph {
-      grid-area: epigraph;
-    }
-
-    &__card-container {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-</style>

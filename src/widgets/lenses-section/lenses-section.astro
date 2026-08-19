@@ -4,16 +4,10 @@ import CardGrid from '@ui/card-grid/card-grid.astro';
 import { lensesSectionContent as lensesSection } from '@content/lenses-section';
 import LensCard from '@entities/lenses/ui/lens-card/lens-card.astro';
 
-const { cards } = lensesSection;
+const { section, cards } = lensesSection;
 ---
 
-<Section
-  id={lensesSection.id}
-  step={lensesSection.step}
-  stepText={lensesSection.stepText}
-  title={lensesSection.title}
-  epigraph={lensesSection.epigraph}
->
+<Section {...section}>
   <CardGrid slot="content" columns={{ base: cards?.length }} colGap="2px">
     {cards?.map(card => (
       <LensCard key={card.id} {...card} />

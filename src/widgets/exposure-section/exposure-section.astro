@@ -3,26 +3,22 @@ import { Section } from '@ui/section';
 import { exposureSectionContent as exposureSection } from '@content/exposure-section';
 import ExposureTriangle from '@entities/exposure/ui/exposure-triangle/exposure-triangle.astro';
 import ExposureCard from '@entities/exposure/ui/exposure-card/exposure-card.astro';
+
+const { section, cards, rule } = exposureSection;
 ---
 
-<Section
-  id={exposureSection.id}
-  step={exposureSection.step}
-  stepText={exposureSection.stepText}
-  title={exposureSection.title}
-  epigraph={exposureSection.epigraph}
->
+<Section {...section}>
   <div slot="content" class="exposure-section__content-container">
     <ExposureTriangle />
     <div class="exposure-section__concepts">
       <h3 class="concepts-title">Key concepts:</h3>
       {
-        exposureSection.cards.map((card, i) => (
+        cards.map((card, i) => (
           <ExposureCard {...card} key={card.id} step={i + 1} />
         ))
       }
     </div>
-    <ExposureCard {...exposureSection.rule} className="exposure-section__rule" />
+    <ExposureCard {...rule} className="exposure-section__rule" />
   </div>
 </Section>
 
