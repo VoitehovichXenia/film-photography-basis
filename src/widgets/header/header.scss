@@ -24,7 +24,6 @@ $header-padding-left-md: 24px;
     height: $header-height-md;
     padding: $header-padding-y-md $header-padding-right-md $header-padding-y-md
       $header-padding-left-md;
-    // overflow-x: hidden;
   }
 }
 
@@ -33,6 +32,8 @@ $header-padding-left-md: 24px;
   align-items: center;
   height: 100%;
   max-width: $max-width;
+  margin: 0 auto;
+
   @media (max-width: $breakpoint-md) {
     @include grid-layout(auto auto, auto, 0, 0, 'logo cta');
     @include grid-items-align($justify: end);
