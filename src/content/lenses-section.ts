@@ -1,4 +1,4 @@
-import type { SectionProps } from '@ui/section/section.types';
+import type { SectionProps } from '@ui/section';
 import { SECTIONS_IDS } from './data/sections';
 import type { LensCardProps } from '@entities/lenses/ui/lens-card/lens-card.types';
 import { FilmingObjects } from '@entities/objects/objects.types';

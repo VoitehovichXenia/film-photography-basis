@@ -1,4 +1,4 @@
-import type { SectionProps } from '@ui/section/section.types';
+import type { SectionProps } from '@ui/section';
 import type { SelectProps } from '@ui/select/select.types';
 import { SECTIONS_IDS } from './data/sections';
 import { ISO_STOPS } from '@entities/film/film.types';

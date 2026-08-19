@@ -1,4 +1,4 @@
-import type { SectionProps } from '@ui/section/section.types';
+import type { SectionProps } from '@ui/section';
 import { SECTIONS_IDS } from './data/sections';
 import type { ExposureCardProps } from '@entities/exposure/ui/exposure-card/exposure-card.types';
 
