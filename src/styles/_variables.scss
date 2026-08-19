@@ -47,12 +47,14 @@ $bg-header: $cream-50-80;
 $bg-header-side-menu: $cream-50-90;
 $bg-extra-light: $white;
 $bg-gray-light: $gray-400;
+$bg-accent: $amber-500;
 
 $border-10: $ink-950-10;
 $border-50: $gray-50;
 $border-400: $gray-400;
 
 /* Breakpoints & sizes */
+$breakpoint-base: 0;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -75,6 +77,7 @@ $spacing-xxl: 80px;
 // Font sizes
 $text-xxs: 0.7rem;
 $text-xs: 0.8rem;
+$text-sm: 0.9rem;
 $text-base: 1rem;
 $text-md: 1.125rem;
 $text-lg: 1.5rem;

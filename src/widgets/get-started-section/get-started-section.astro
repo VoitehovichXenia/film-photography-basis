@@ -1,7 +1,6 @@
 ---
 import { Section } from '@ui/section';
-import CardGrid from '@ui/card-grid/card-grid.astro';
-import StarterKitCard from '@ui/card/starter-kit-card/starter-kit-card.astro';
+import { CardGrid, StarterKitCard } from '@ui/card';
 import NavCard from '@ui/card/nav-card/nav-card.astro';
 
 import { getStartedSectionContent as getStartedSection } from '@content/get-started-section';
@@ -13,15 +12,15 @@ const { section, starterKit, navCards } = getStartedSection;
     starterKit?.length && (
       <CardGrid
         slot="content"
-        columns={{ base: getStartedSection.starterKit?.length }}
-        colGap="2px"
+        columns={{ md: getStartedSection.starterKit?.length, base: 1 }}
+        colGap={{ lg: "2px" }}
+        rowGap={{ base: "4px" }}
+        chooseActiveCard
+        activeClassName="sk-card--active"
+        defaultActiveCardIndex={0}
       >
         {getStartedSection.starterKit?.map((item) => (
-          <StarterKitCard
-            title={item.title}
-            pretitle={item.pretitle}
-            description={item.description}
-          />
+          <StarterKitCard {...item} />
         ))}
       </CardGrid>
     )

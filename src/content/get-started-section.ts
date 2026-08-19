@@ -24,13 +24,13 @@ export const getStartedSectionContent: GetStartedSectionProps = {
       pretitle: 'Camera',
       title: 'Film camera',
       description:
-        'Start with a 35mm SLR—reliable, affordable, and with a huge selection of lenses. Pentax K1000, Canon AE-1, Nikon FM2, Olympus OM-1 ',
+        'Start with a 35mm SLR - reliable, affordable, and with a huge selection of lenses. Pentax K1000, Canon AE-1, Nikon FM2, Olympus OM-1 ',
     },
     {
       id: 'starter-kit-lens',
       step: 2,
       pretitle: 'Lens',
-      title: 'Standart lens kit: 50mm f 1/1.8 or f 1/2',
+      title: '50mm f 1/1.8 or f 1/2',
       description:
         'A versatile focal length close to human vision. One of the most affordable lenses on the market. Suitable for most subjects (portrait, landscape).',
     },
