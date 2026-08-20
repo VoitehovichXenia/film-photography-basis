@@ -1,0 +1,30 @@
+.card-grid {
+  @media (min-width: $breakpoint-base) {
+    @include grid-layout(
+      repeat(var(--columns-base), 1fr),
+      auto,
+      var(--colGap-base),
+      var(--rowGap-base)
+    );
+  }
+  @media (min-width: $breakpoint-sm) {
+    @include grid-layout(repeat(var(--columns-sm), 1fr), auto, var(--colGap-sm), var(--rowGap-sm));
+  }
+  @media (min-width: $breakpoint-md) {
+    @include grid-layout(repeat(var(--columns-md), 1fr), auto, var(--colGap-md), var(--rowGap-md));
+  }
+  @media (min-width: $breakpoint-lg) {
+    @include grid-layout(repeat(var(--columns-lg), 1fr), auto, var(--colGap-lg), var(--rowGap-lg));
+  }
+  @media (min-width: $breakpoint-xl) {
+    @include grid-layout(repeat(var(--columns-xl), 1fr), auto, var(--colGap-xl), var(--rowGap-xl));
+  }
+  @media (min-width: $breakpoint-xxl) {
+    @include grid-layout(
+      repeat(var(--columns-xxl), 1fr),
+      auto,
+      var(--colGap-xxl),
+      var(--rowGap-xxl)
+    );
+  }
+}

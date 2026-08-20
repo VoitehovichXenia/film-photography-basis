@@ -6,14 +6,15 @@ $amber-500: #d99a34;
 $amber-600: #b7832f;
 
 // Dusty rose
-$rose-400: #c49a9a; // $accent-10
+$rose-400: #c49a9a;
 
 // Neutrals — near black
 $black: #000;
 $black-35: rgba(#000, 0.35);
-$ink-900: #1c1a12; // was $text-accent-dark
-$ink-950: #0f0f0f; // was $neutral-15
-$ink-950-10: #0f0f0f1c; // was $neutral-10
+$ink-800: #1c1a12;
+$ink-900-03: #1a0a0a08;
+$ink-950: #0f0f0f;
+$ink-950-10: #0f0f0f1c;
 
 // Neutrals - white
 $white: #fff;
@@ -35,10 +36,11 @@ $accent-glow: $amber-400;
 
 $text-base-color: $black;
 $text-accent: $white;
-$text-accent-dark: $ink-900;
+$text-accent-dark: $ink-800;
 $text-muted: $gray-500;
 $text-subtle: $gray-600;
 $text-subtle-hover: $ink-950;
+$text-colored-accent: $amber-500;
 
 $bg-main: $cream-50-95;
 $bg-main-dark: $black;
@@ -46,12 +48,13 @@ $bg-header: $cream-50-80;
 $bg-header-side-menu: $cream-50-90;
 $bg-extra-light: $white;
 $bg-gray-light: $gray-400;
-
+$bg-accent: $amber-500;
 $border-10: $ink-950-10;
 $border-50: $gray-50;
 $border-400: $gray-400;
 
 /* Breakpoints & sizes */
+$breakpoint-base: 0;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -72,13 +75,19 @@ $spacing-xxl: 80px;
 /* Typography */
 
 // Font sizes
-$text-xxs: 0.69rem;
-$text-xs: 0.81rem;
+$text-xxs: 0.7rem;
+$text-xs: 0.8rem;
+$text-sm: 0.9rem;
 $text-base: 1rem;
 $text-md: 1.125rem;
 $text-lg: 1.5rem;
 $text-xl: 2rem;
 $text-xxl: 3rem;
+$text-3xl: 4rem;
+$text-4xl: 5rem;
+$text-5xl: 6rem;
+$text-6xl: 7rem;
+$text-7xl: 8rem;
 
 // Font line-heights
 $text-xs--line-height: 1.6;

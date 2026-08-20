@@ -1,0 +1,48 @@
+---
+import type { CardGridProps } from './card-grid.types';
+import { getCardGridStyles } from './card-grid.lib';
+import './card-grid.scss';
+
+const { columns, colGap, rowGap, chooseActiveCard, activeClassName, defaultActiveCardIndex } = Astro.props as CardGridProps;
+
+const cardGridStyles = getCardGridStyles({ columns, colGap, rowGap });
+---
+
+<div
+  class="card-grid"
+  style={cardGridStyles}
+  data-choose-active-card={chooseActiveCard}
+  data-default-active-card-index={defaultActiveCardIndex}
+  data-active-class-name={activeClassName}
+>
+  <slot />
+</div>
+
+<script>
+  // Card grid with ability to choose active card
+  const cardGrid = document.querySelector('[data-choose-active-card="true"]') as HTMLDivElement;
+
+  if (cardGrid) {
+    const defaultActiveCardIndex = Number(cardGrid.dataset.defaultActiveCardIndex);
+    const activeClassName = cardGrid.dataset.activeClassName;
+    const cards = cardGrid.querySelectorAll('[data-card]') as NodeListOf<HTMLDivElement>;
+
+    // Set default active card
+    if (!isNaN(defaultActiveCardIndex)) {
+      cards[defaultActiveCardIndex].classList.add(activeClassName || 'active');
+    }
+
+    const handleChooseActiveCard = (ev: Event) => {
+      const target = ev.currentTarget as HTMLDivElement;
+      cards.forEach(card => {
+        card.classList.remove(activeClassName || 'active');
+      });
+      target.classList.add(activeClassName || 'active');
+    }
+
+    // Add event listener to all cards
+    cards.forEach(card => {
+      card.addEventListener('click', handleChooseActiveCard);
+    });
+  }
+</script>

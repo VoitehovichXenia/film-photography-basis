@@ -52,3 +52,13 @@
 @mixin position-relative($top: unset, $left: unset, $right: unset, $bottom: unset, $zIndex: 0) {
   @include position(relative, $top, $left, $right, $bottom, $zIndex);
 }
+
+/* Typography */
+@mixin inherit-font-properties() {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}

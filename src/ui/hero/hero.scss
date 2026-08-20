@@ -1,6 +1,6 @@
 %hero-title {
   font-family: $font-serif;
-  font-size: clamp(80px, 9vw, 136px);
+  font-size: clamp($text-4xl, 9vw, $text-7xl);
   line-height: 0.95;
   font-weight: $text-regular;
   letter-spacing: 0.02em;
@@ -8,7 +8,7 @@
 
 .hero {
   @include position-relative();
-  min-height: calc(100vh - $header-height-lg);
+  height: max-content;
   color: $text-accent;
 
   @media (max-width: $breakpoint-md) {

@@ -1,42 +1,36 @@
 ---
-import Section from '@ui/section/section.astro';
-import CardGrid from '@ui/card-grid/card-grid.astro';
-import StarterKitCard from '@ui/card/starter-kit-card/starter-kit-card.astro';
-import NavCard from '@ui/card/nav-card/nav-card.astro';
+import { Section } from '@ui/section';
+import { CardGrid, StarterKitCard, NavCard } from '@ui/card';
+import './get-started-section.scss';
 
 import { getStartedSectionContent as getStartedSection } from '@content/get-started-section';
+const { section, starterKit, navCards } = getStartedSection;
 ---
 
-<Section
-  id={getStartedSection.id}
-  title={getStartedSection.title}
-  step={getStartedSection.step}
-  stepText={getStartedSection.stepText}
-  epigraph={getStartedSection.epigraph}
->
+<Section {...section} contentClassName="get-started-section">
   {
-    getStartedSection.starterKit?.length && (
+    starterKit?.length && (
       <CardGrid
         slot="content"
-        columns={{ base: getStartedSection.starterKit?.length }}
-        colGap="2px"
+        columns={{ md: getStartedSection.starterKit?.length, base: 1 }}
+        colGap={{ lg: "2px" }}
+        rowGap={{ base: "4px" }}
+        chooseActiveCard
+        activeClassName="sk-card--active"
+        defaultActiveCardIndex={0}
       >
-        {getStartedSection.starterKit?.map((item) => (
-          <StarterKitCard
-            title={item.title}
-            pretitle={item.pretitle}
-            description={item.description}
-          />
-        ))}
+        {getStartedSection.starterKit?.map((item) => (<StarterKitCard {...item} />))}
       </CardGrid>
     )
   }
   {
-    getStartedSection.navCards?.length && (
-      <CardGrid slot="content" columns={{ base: getStartedSection.navCards.length }} colGap="2px">
-        {getStartedSection.navCards.map((item) => (
-          <NavCard title={item.title} pretitle={item.pretitle} url={item.url} />
-        ))}
+    navCards?.length && (
+      <CardGrid slot="content"
+        columns={{ lg: getStartedSection.navCards.length, md: 3, sm: 2, base: 1 }}
+        colGap={{ base: "2px" }}
+        rowGap={{ base: "4px" }}
+      >
+        {getStartedSection.navCards.map((item) => (<NavCard {...item} />))}
       </CardGrid>
     )
   }

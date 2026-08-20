@@ -1,0 +1,79 @@
+$section-padding-y-xl: 120px;
+$section-padding-y-lg: 60px;
+$section-padding-y-md: 60px;
+$section-padding-x-lg: 60px;
+$section-padding-x-md: 24px;
+
+$section-header-margin-lg: 72px;
+$section-header-margin-md: 48px;
+
+$section-title-max-width: 560px;
+$section-epigraph-max-width: 300px;
+
+.section {
+  scroll-margin-top: calc($header-height-lg);
+  border-top: 1px solid $border-50;
+  padding: $section-padding-y-xl $section-padding-x-lg;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: $section-padding-y-lg $section-padding-x-lg;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $section-padding-y-md $section-padding-x-md;
+  }
+
+  &__header {
+    @include grid-layout($columns: 1fr auto, $col-gap: 24px, $areas: 'title epigraph');
+    max-width: $max-width;
+    margin: 0 auto $section-header-margin-lg;
+
+    @media (max-width: $breakpoint-md) {
+      @include grid-layout($columns: 1fr, $row-gap: 16px, $areas: 'title' 'epigraph');
+      margin-bottom: $section-header-margin-md;
+    }
+  }
+
+  &__title-container {
+    grid-area: title;
+  }
+
+  &__step {
+    font-family: $font-mono;
+    font-size: $text-xxs;
+    letter-spacing: 0.15em;
+    color: $text-colored-accent;
+    padding: 8px 0;
+  }
+
+  &__title {
+    max-width: $section-title-max-width;
+    font-family: $font-serif;
+    font-size: clamp(48px, 4.5vw, 72px);
+    font-weight: $text-regular;
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+
+  &__title-accent {
+    @include inherit-font-properties();
+    color: $text-colored-accent;
+  }
+
+  &__epigraph {
+    grid-area: epigraph;
+    max-width: $section-epigraph-max-width;
+    font-size: $text-base;
+    line-height: 1.7;
+    color: $text-muted;
+
+    @media (max-width: $breakpoint-md) {
+      max-width: unset;
+    }
+  }
+
+  &__content-container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+}

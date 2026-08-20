@@ -1,20 +1,21 @@
-import type { NavCardProps } from '@ui/card/nav-card/nav-card.types';
-import type { StarterKitCardProps } from '@ui/card/starter-kit-card/starter-kit-card.types';
-import type { SectionProps } from '@ui/section/section.types';
-import { SECTIONS_IDS } from './data/sections';
+import type { NavCardProps, StarterKitCardProps } from '@ui/card';
+import { SECTIONS_IDS, type SectionBlockProps } from './data/sections';
 
-type GetStartedSectionProps = SectionProps & {
+type GetStartedSectionProps = SectionBlockProps & {
   starterKit: StarterKitCardProps[];
   navCards: NavCardProps[];
 };
 
 export const getStartedSectionContent: GetStartedSectionProps = {
-  id: SECTIONS_IDS.GetStarted,
-  step: 1,
-  stepText: 'Start',
-  title: 'All you need for your first shot',
-  epigraph:
-    "Film photography is intimidating because it's seems so difficult, but you only need a little to get started.",
+  section: {
+    id: SECTIONS_IDS.GetStarted,
+    step: 1,
+    stepText: 'Start',
+    title: 'All you need for your first shot',
+    titleAccent: 'first shot',
+    epigraph:
+      "Film photography is intimidating because it's seems so difficult, but you only need a little to get started.",
+  },
   starterKit: [
     {
       id: 'starter-kit-camera',
@@ -22,13 +23,13 @@ export const getStartedSectionContent: GetStartedSectionProps = {
       pretitle: 'Camera',
       title: 'Film camera',
       description:
-        'Start with a 35mm SLR—reliable, affordable, and with a huge selection of lenses. Pentax K1000, Canon AE-1, Nikon FM2, Olympus OM-1 ',
+        'Start with a 35mm SLR - reliable, affordable, and with a huge selection of lenses. Pentax K1000, Canon AE-1, Nikon FM2, Olympus OM-1 ',
     },
     {
       id: 'starter-kit-lens',
       step: 2,
       pretitle: 'Lens',
-      title: 'Standart lens kit: 50mm f 1/1.8 or f 1/2',
+      title: '50mm f 1/1.8 or f 1/2',
       description:
         'A versatile focal length close to human vision. One of the most affordable lenses on the market. Suitable for most subjects (portrait, landscape).',
     },
@@ -68,7 +69,7 @@ export const getStartedSectionContent: GetStartedSectionProps = {
     },
     {
       id: 'nav-card-exposure-calc',
-      pretitle: 'Exposure',
+      pretitle: 'Calculator',
       title: 'Calculate exposure',
       url: `#${SECTIONS_IDS.ExpousureCalculator}`,
     },
