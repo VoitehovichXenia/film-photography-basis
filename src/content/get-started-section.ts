@@ -1,5 +1,4 @@
-import type { NavCardProps } from '@ui/card/nav-card/nav-card.types';
-import type { StarterKitCardProps } from '@ui/card/starter-kit-card/starter-kit-card.types';
+import type { NavCardProps, StarterKitCardProps } from '@ui/card';
 import { SECTIONS_IDS, type SectionBlockProps } from './data/sections';
 
 type GetStartedSectionProps = SectionBlockProps & {
@@ -70,7 +69,7 @@ export const getStartedSectionContent: GetStartedSectionProps = {
     },
     {
       id: 'nav-card-exposure-calc',
-      pretitle: 'Exposure',
+      pretitle: 'Calculator',
       title: 'Calculate exposure',
       url: `#${SECTIONS_IDS.ExpousureCalculator}`,
     },

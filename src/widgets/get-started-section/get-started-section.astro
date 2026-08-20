@@ -1,13 +1,13 @@
 ---
 import { Section } from '@ui/section';
-import { CardGrid, StarterKitCard } from '@ui/card';
-import NavCard from '@ui/card/nav-card/nav-card.astro';
+import { CardGrid, StarterKitCard, NavCard } from '@ui/card';
+import './get-started-section.scss';
 
 import { getStartedSectionContent as getStartedSection } from '@content/get-started-section';
 const { section, starterKit, navCards } = getStartedSection;
 ---
 
-<Section {...section}>
+<Section {...section} contentClassName="get-started-section">
   {
     starterKit?.length && (
       <CardGrid
@@ -19,18 +19,18 @@ const { section, starterKit, navCards } = getStartedSection;
         activeClassName="sk-card--active"
         defaultActiveCardIndex={0}
       >
-        {getStartedSection.starterKit?.map((item) => (
-          <StarterKitCard {...item} />
-        ))}
+        {getStartedSection.starterKit?.map((item) => (<StarterKitCard {...item} />))}
       </CardGrid>
     )
   }
   {
     navCards?.length && (
-      <CardGrid slot="content" columns={{ base: getStartedSection.navCards.length }} colGap="2px">
-        {getStartedSection.navCards.map((item) => (
-          <NavCard title={item.title} pretitle={item.pretitle} url={item.url} />
-        ))}
+      <CardGrid slot="content"
+        columns={{ lg: getStartedSection.navCards.length, md: 3, sm: 2, base: 1 }}
+        colGap={{ base: "2px" }}
+        rowGap={{ base: "4px" }}
+      >
+        {getStartedSection.navCards.map((item) => (<NavCard {...item} />))}
       </CardGrid>
     )
   }

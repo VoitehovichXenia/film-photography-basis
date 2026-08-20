@@ -1,4 +1,5 @@
-$section-padding-y-lg: 120px;
+$section-padding-y-xl: 120px;
+$section-padding-y-lg: 60px;
 $section-padding-y-md: 60px;
 $section-padding-x-lg: 60px;
 $section-padding-x-md: 24px;
@@ -11,8 +12,12 @@ $section-epigraph-max-width: 300px;
 
 .section {
   scroll-margin-top: calc($header-height-lg);
-  border-top: 1px solid $border-400;
-  padding: $section-padding-y-lg $section-padding-x-lg;
+  border-top: 1px solid $border-50;
+  padding: $section-padding-y-xl $section-padding-x-lg;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: $section-padding-y-lg $section-padding-x-lg;
+  }
 
   @media (max-width: $breakpoint-md) {
     padding: $section-padding-y-md $section-padding-x-md;
