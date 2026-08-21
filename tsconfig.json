@@ -4,7 +4,7 @@
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@styles/*": ["./src/styles/*"],
-      "@ui/*": ["./src/ui/*"],
+      "@ui/*": ["./src/shared/ui/*"],
       "@entities/*": ["./src/entities/*"],
       "@widgets/*": ["./src/widgets/*"],
       "@content/*": ["./src/content/*"],
