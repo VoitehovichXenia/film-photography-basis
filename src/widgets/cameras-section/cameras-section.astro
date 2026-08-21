@@ -1,0 +1,16 @@
+---
+import { Section } from '@ui/section';
+import { FilmFormatCard } from '@entities/cameras';
+import { camerasSectionContent } from '@content/cameras-section';
+import './cameras-section.scss';
+
+const { section, filmFormatCards } = camerasSectionContent;
+---
+
+<Section {...section}>
+    <div class="film-format-cards__container" slot="content">
+        {filmFormatCards.map((card) => (
+            <FilmFormatCard {...card} />
+        ))}
+    </div>
+</Section>

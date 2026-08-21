@@ -1,0 +1,41 @@
+$bg-card: $cream-300;
+$border-sample-shot: $ink-950-25;
+
+$frame-max-width: 100px;
+
+.film-format-card {
+  border: 1px solid $border-50;
+
+  &__sample-shot {
+    @include flex-layout(column, $row-gap: 16px);
+    @include flex-items-align(center, center);
+    width: 100%;
+    border-bottom: 1px solid $border-50;
+    height: 260px;
+    background: $bg-card;
+  }
+}
+
+.sample-shot {
+  &__frame {
+    width: 20%;
+    max-width: $frame-max-width;
+    border: 2px solid $border-sample-shot;
+    background: transparent;
+  }
+
+  &__text {
+    font-family: $font-mono;
+    font-size: $text-3xs;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $text-muted;
+    text-align: center;
+  }
+}
+
+:global(.film-format-card__tag) {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid $border-50;
+}

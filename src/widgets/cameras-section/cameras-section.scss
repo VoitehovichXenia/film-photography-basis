@@ -1,0 +1,7 @@
+.film-format-cards__container {
+  @include grid-layout($columns: repeat(2, 1fr), $col-gap: 2px);
+
+  @media (max-width: $breakpoint-md) {
+    @include grid-layout($columns: 1fr, $row-gap: 4px);
+  }
+}

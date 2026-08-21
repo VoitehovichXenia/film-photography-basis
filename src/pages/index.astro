@@ -1,6 +1,7 @@
 ---
 import Hero from '@widgets/main-hero/main-hero.astro';
-import GetStartedSection from '@widgets/get-started-section/get-started-section.astro';
+import { GetStartedSection } from '@widgets/get-started-section';
+import { CamerasSection } from '@widgets/cameras-section';
 import FilmsSection from '@widgets/films-section/films-section.astro';
 import LensesSection from '@widgets/lenses-section/lenses-section.astro';
 import ExposureSection from '@widgets/exposure-section/exposure-section.astro';
@@ -16,6 +17,7 @@ import '@styles/main.scss';
   <meta slot="head" name="viewport" content="width=device-width, initial-scale=1" />
   <Hero />
   <GetStartedSection />
+  <CamerasSection />
   <FilmsSection />
   <LensesSection />
   <ExposureSection />

@@ -1,0 +1,15 @@
+---
+import { TagCard } from "@ui/card";
+import type { FilmFormatCardProps } from "./film-format-card.types";
+import './film-format-card.scss';
+
+const { sampleShotWidth, sampleShotHeight, sampleShotText, ...tagCardProps } = Astro.props as FilmFormatCardProps;
+---
+
+<div class="film-format-card">
+    <div class="film-format-card__sample-shot">
+        <div class="sample-shot__frame" style={`aspect-ratio: ${sampleShotWidth} / ${sampleShotHeight}`}></div>
+        <p class="sample-shot__text">{sampleShotText}</p>
+    </div>
+    <TagCard {...tagCardProps} tagsClassName="film-format-card__tag" />
+</div>

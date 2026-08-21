@@ -1,0 +1,45 @@
+$tag-card-padding: 32px;
+$pretitle-margin-bottom: 10px;
+$title-margin-bottom: 12px;
+$tags-margin-top: 20px;
+
+.tag-card {
+  padding: $tag-card-padding;
+
+  &__pretitle {
+    font-family: $font-mono;
+    font-size: $text-3xs;
+    font-weight: $text-light;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $text-colored-accent;
+    margin-bottom: $pretitle-margin-bottom;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $text-xl;
+    font-weight: $text-light;
+    line-height: 1;
+    margin-bottom: $title-margin-bottom;
+  }
+
+  &__description {
+    font-family: $font-sans;
+    font-size: $text-sm;
+    color: $text-muted;
+    line-height: 1.7;
+  }
+
+  &__tags {
+    @include flex-layout($wrap: wrap, $col-gap: 6px);
+    margin-top: $tags-margin-top;
+  }
+
+  &__tag {
+    font-family: $font-mono;
+    font-size: $text-3xs;
+    letter-spacing: 0.06em;
+    color: $text-muted;
+  }
+}

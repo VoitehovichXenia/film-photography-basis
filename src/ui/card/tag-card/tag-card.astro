@@ -1,0 +1,20 @@
+---
+import type { TagCardProps } from './tag-card.types';
+import './tag-card.scss';
+
+const { pretitle, title, className, tags, tagsSeparator, description, tagsClassName } = Astro.props as TagCardProps;
+---
+
+<div class:list={['tag-card', className]}>
+    {pretitle && <h4 class="tag-card__pretitle">{pretitle}</h4>}
+    {title && <h3 class="tag-card__title">{title}</h3>}
+    {description && <p class="tag-card__description">{description}</p>}
+    <div class="tag-card__tags">
+        {tags?.map((tag, index) => (
+            <>
+                <span class:list={['tag-card__tag', tagsClassName]} data-tag>{tag}</span>
+                {index < tags.length - 1 && tagsSeparator && <span class="tag-card__tags-separator">{tagsSeparator}</span>}
+            </>
+        ))}
+    </div>
+</div>
