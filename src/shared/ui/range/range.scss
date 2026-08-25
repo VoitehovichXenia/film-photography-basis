@@ -1,0 +1,49 @@
+@use 'sass:map';
+
+$track-size: 3px;
+$track-bg: $ink-950-10;
+
+$range-variants: (
+  green: (
+    bg: $bg-success,
+  ),
+  red: (
+    bg: $bg-error,
+  ),
+);
+
+.range {
+  @include flex-layout($col-gap: 12px);
+  @include flex-items-align(center);
+  min-height: 1rem;
+
+  &__label {
+    flex-shrink: 0;
+    width: 30%;
+    font-family: $font-mono;
+    font-size: $text-3xs;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-muted;
+  }
+
+  &__track {
+    @include position-relative();
+    width: 70%;
+    height: $track-size;
+    background: $track-bg;
+  }
+
+  &__track_fill {
+    height: 100%;
+    width: var(--width);
+
+    @each $name, $props in $range-variants {
+      &#{'.' + $name} {
+        @if map.has-key($props, bg) {
+          background-color: map.get($props, bg);
+        }
+      }
+    }
+  }
+}
