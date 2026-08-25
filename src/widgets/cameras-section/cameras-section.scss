@@ -5,3 +5,32 @@
     @include grid-layout($columns: 1fr, $row-gap: 4px);
   }
 }
+
+.lens-mount {
+  &__container {
+    margin-top: 72px;
+  }
+
+  &__title {
+    margin-bottom: 6px;
+    font-family: $font-mono;
+    font-size: $text-xxs;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $text-muted;
+    font-weight: $text-light;
+  }
+
+  &__description {
+    max-width: 640px;
+    margin-bottom: 28px;
+    font-size: $text-sm;
+    line-height: 1.7;
+    color: $text-base-color;
+
+    &-accent {
+      font-weight: $text-bold;
+      color: $text-colored-accent;
+    }
+  }
+}
