@@ -29,7 +29,7 @@
   &__step {
     @include position-absolute($top: 0, $right: 20px, $zIndex: 0);
     font-family: $font-serif;
-    font-size: $text-7xl;
+    font-size: $text-8xl;
     font-weight: $text-bold;
     color: rgba(26, 10, 10, 0.05);
     line-height: 1;

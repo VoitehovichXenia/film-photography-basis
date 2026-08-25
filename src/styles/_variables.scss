@@ -5,6 +5,14 @@ $amber-400: #ffbd20;
 $amber-500: #d99a34;
 $amber-600: #b7832f;
 
+// Green
+$green-500: #2a5e43;
+$green-500-08: #2a5e4314;
+
+// Red
+$red-500: #8b1a2a;
+$red-500-07: #8b1a2a12;
+
 // Dusty rose
 $rose-400: #c49a9a;
 
@@ -14,7 +22,7 @@ $black-35: rgba(#000, 0.35);
 $ink-800: #1c1a12;
 $ink-900-03: #1a0a0a08;
 $ink-950: #0f0f0f;
-$ink-950-10: #0f0f0f1c;
+$ink-950-10: #0f0f0f1a;
 $ink-950-25: #0f0f0f40;
 
 // Neutrals - white
@@ -43,6 +51,8 @@ $text-muted: $gray-500;
 $text-subtle: $gray-600;
 $text-subtle-hover: $ink-950;
 $text-colored-accent: $amber-500;
+$text-success: $green-500;
+$text-error: $red-500;
 
 $bg-main: $cream-50-95;
 $bg-main-dark: $black;
@@ -51,6 +61,9 @@ $bg-header-side-menu: $cream-50-90;
 $bg-extra-light: $white;
 $bg-gray-light: $gray-400;
 $bg-accent: $amber-500;
+$bg-success: $green-500-08;
+$bg-error: $red-500-07;
+
 $border-10: $ink-950-10;
 $border-50: $gray-50;
 $border-400: $gray-400;
@@ -77,25 +90,25 @@ $spacing-xxl: 80px;
 /* Typography */
 
 // Font sizes
-$text-3xs: 0.625rem;
-$text-xxs: 0.7rem;
-$text-xs: 0.8rem;
-$text-sm: 0.9rem;
+$text-3xs: 0.625rem; // 10px
+$text-xxs: 0.7rem; // 11,2px
+$text-xs: 0.8rem; // 12,8px
+$text-sm: 0.9rem; // 14.4px
 $text-base: 1rem;
-$text-md: 1.125rem;
-$text-lg: 1.5rem;
-$text-xl: 2rem;
-$text-xxl: 3rem;
-$text-3xl: 4rem;
-$text-4xl: 5rem;
-$text-5xl: 6rem;
-$text-6xl: 7rem;
-$text-7xl: 8rem;
+$text-md: 1.125rem; // 18px
+$text-lg: 1.5rem; // 24px
+$text-xl: 2rem; // 32px
+$text-2xl: 2.5rem; // 40px
+$text-3xl: 3rem; // 48px
+$text-4xl: 4rem; // 64px
+$text-5xl: 5rem; // 80px
+$text-6xl: 6rem; // 96px
+$text-7xl: 7rem; // 112px
+$text-8xl: 8rem; // 128px
 
 // Font line-heights
 $text-xs--line-height: 1.6;
 $text-base--line-height: calc(1.5 / 1);
-$text-xxl--line-height: 1;
 
 // Font weights
 $text-light: 300;
