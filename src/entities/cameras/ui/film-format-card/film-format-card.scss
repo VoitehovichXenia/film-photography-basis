@@ -14,6 +14,12 @@ $frame-max-width: 100px;
     height: 260px;
     background: $bg-card;
   }
+
+  &__tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid $border-50;
+  }
 }
 
 .sample-shot {
@@ -32,10 +38,4 @@ $frame-max-width: 100px;
     color: $text-muted;
     text-align: center;
   }
-}
-
-:global(.film-format-card__tag) {
-  display: inline-block;
-  padding: 4px 10px;
-  border: 1px solid $border-50;
 }
