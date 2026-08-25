@@ -1,4 +1,4 @@
-import type { WithId } from '@shared/types/with-id';
+import type { WithId } from '@shared/types';
 import type { ResponsiveValues } from '@styles/config';
 
 export interface CardGridProps extends WithId {

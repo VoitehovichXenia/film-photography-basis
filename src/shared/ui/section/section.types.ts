@@ -1,5 +1,5 @@
 import type { SECTIONS_IDS } from '@content/data/sections';
-import type { WithId } from '@shared/types/with-id';
+import type { WithId } from '@shared/types';
 
 type ContentClassNames = 'card-container';
 

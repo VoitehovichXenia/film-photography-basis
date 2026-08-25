@@ -1,4 +1,4 @@
-import type { WithId } from '../../shared/types/with-id';
+import type { WithId } from '@shared/types';
 
 export enum FilmTypes {
   blackWhite = 'B&W',

@@ -1,4 +1,4 @@
-import type { WithId } from '@shared/types/with-id';
+import type { WithClassName, WithId } from '@shared/types';
 import { ICON_KINDS, type IconProps } from '@ui/icon';
 
 import { CtaVariants } from './cta.const';
@@ -12,11 +12,10 @@ export const CtaIconKinds: CtaIconKinds = {
   default: ICON_KINDS.default,
 } as const;
 
-export interface CtaButtonProps extends WithId {
+export interface CtaButtonProps extends WithId, WithClassName {
   text?: string;
   kind: `${CtaVariants}`;
   icon?: IconProps;
-  className?: string;
 }
 
 export interface CtaIconButtonProps extends Omit<CtaButtonProps, 'text'> {

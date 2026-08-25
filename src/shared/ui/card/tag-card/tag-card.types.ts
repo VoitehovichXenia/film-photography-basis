@@ -1,11 +1,10 @@
-import type { WithId } from '@shared/types/with-id';
+import type { WithClassName, WithId } from '@shared/types';
 
-export interface TagCardProps extends WithId {
+export interface TagCardProps extends WithId, WithClassName {
   pretitle?: string;
   title?: string;
   tags: string[];
   tagsClassName?: string;
   tagsSeparator?: string;
   description?: string;
-  className?: string;
 }

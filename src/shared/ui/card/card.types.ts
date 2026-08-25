@@ -1,10 +1,9 @@
-import type { WithId } from '@shared/types/with-id';
+import type { WithId, WithClassName } from '@shared/types';
 
-export interface AbstractCardProps extends WithId {
+export interface AbstractCardProps extends WithId, WithClassName {
   title: string;
   pretitle: string;
   description: string;
-  className?: string;
 }
 
 export enum CardVariants {

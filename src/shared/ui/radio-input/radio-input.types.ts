@@ -1,4 +1,4 @@
-import type { WithId } from '@shared/types/with-id';
+import type { WithId } from '@shared/types';
 
 export interface RadioInputProps extends WithId {
   name: string;
