@@ -19,6 +19,10 @@ $footer-padding-x-md: $spacing-lg;
   max-width: calc($max-width + $footer-padding-x-lg * 2);
   margin: 0 auto;
 
+  @media (max-width: $breakpoint-lg) {
+    padding: $footer-padding-top-lg $spacing-2xl $footer-padding-bottom-lg;
+  }
+
   @media (max-width: $breakpoint-md) {
     @include grid-layout(1fr, repeat(4, auto), 0, $spacing-xl, 'logo' 'nav' 'author' 'bottom');
     padding: $footer-padding-top-md $footer-padding-x-md $footer-padding-bottom-md;
@@ -48,7 +52,7 @@ $footer-padding-x-md: $spacing-lg;
     margin-top: $spacing-3xs;
     font-size: $text-xs;
     color: $text-subtle;
-    line-height: $text-xs--line-height;
+    line-height: $line-height-lg;
   }
 
   &__nav {
@@ -59,7 +63,7 @@ $footer-padding-x-md: $spacing-lg;
     &-link {
       display: block;
       font-size: $text-xs;
-      letter-spacing: 0.08em;
+      letter-spacing: $letter-spacing-xs;
       text-transform: uppercase;
       color: $text-subtle;
       transition: color 0.2s;
@@ -102,7 +106,7 @@ $footer-padding-x-md: $spacing-lg;
       font-family: $font-mono;
       font-size: $text-xxs;
       font-weight: $text-light;
-      letter-spacing: 0.1em;
+      letter-spacing: $letter-spacing-sm;
       text-transform: uppercase;
       color: $accent;
     }
@@ -130,7 +134,7 @@ $footer-padding-x-md: $spacing-lg;
     font-family: $font-mono;
     font-size: $text-xs;
     color: $text-subtle;
-    letter-spacing: 0.06em;
+    letter-spacing: $letter-spacing-2xs;
 
     @media (max-width: $breakpoint-md) {
       @include flex-layout(column, $row-gap: $spacing-4xs);

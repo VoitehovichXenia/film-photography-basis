@@ -16,7 +16,7 @@ $badge-variants: (
 
   &__text {
     font-size: $text-xs;
-    line-height: 1.5;
+    line-height: $line-height-md;
     font-weight: $text-regular;
   }
 

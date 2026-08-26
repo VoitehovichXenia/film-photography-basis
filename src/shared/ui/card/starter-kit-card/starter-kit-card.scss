@@ -38,7 +38,7 @@ $card-pretitle-text-active: $white-50;
     font-size: $text-8xl;
     font-weight: $text-bold;
     color: $card-step-text;
-    line-height: 1;
+    line-height: $line-height-base;
     pointer-events: none;
     transition: color 0.3s ease;
   }
@@ -47,7 +47,7 @@ $card-pretitle-text-active: $white-50;
     font-family: $font-mono;
     font-weight: $text-light;
     font-size: $text-xxs;
-    letter-spacing: 0.12em;
+    letter-spacing: $letter-spacing-md;
     text-transform: uppercase;
     color: $text-muted;
     margin-bottom: $spacing-xs;
@@ -58,14 +58,14 @@ $card-pretitle-text-active: $white-50;
     font-family: $font-serif;
     font-size: $text-xl;
     font-weight: $text-regular;
-    letter-spacing: 0.02em;
+    letter-spacing: $letter-spacing-2xs;
     margin-bottom: $spacing-xs;
     transition: color 0.3s ease;
   }
 
   &__text {
     font-size: $text-sm;
-    line-height: 1.7;
+    line-height: $line-height-xl;
     color: $card-text;
     transition: color 0.3s ease;
   }

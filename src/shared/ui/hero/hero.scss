@@ -1,9 +1,9 @@
 %hero-title {
   font-family: $font-serif;
   font-size: clamp($text-5xl, 9vw, $text-8xl);
-  line-height: 0.95;
+  line-height: $line-height-xs;
   font-weight: $text-regular;
-  letter-spacing: 0.02em;
+  letter-spacing: $letter-spacing-2xs;
 }
 
 .hero {
@@ -80,7 +80,7 @@
     font-family: $font-serif;
     font-weight: $text-bold;
     font-size: 220px;
-    line-height: 1.1;
+    line-height: $line-height-sm;
     color: $text-accent;
     transform: rotate(270deg) translateY(120px);
 
@@ -105,7 +105,7 @@
     margin-bottom: 28px;
     font-family: $font-mono;
     font-size: $text-xxs;
-    letter-spacing: 0.2em;
+    letter-spacing: $letter-spacing-xl;
     color: $text-accent;
     text-transform: uppercase;
 
@@ -142,7 +142,7 @@
   &__description {
     font-size: $text-md;
     max-width: 480px;
-    line-height: 1.7;
+    line-height: $line-height-xl;
     margin-bottom: $spacing-3xl;
 
     @media (max-width: $breakpoint-sm) {

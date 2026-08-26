@@ -8,7 +8,7 @@ $svg-filter-hover: brightness(0) saturate(100%) invert(6%) sepia(26%) saturate(7
   @include flex-items-align(center, space-between);
   padding: $padding-nav-card;
   border: 1px solid $border-50;
-  line-height: 1.6;
+  line-height: $line-height-lg;
   background: $bg-nav-card;
   transition:
     background 0.3s,
@@ -39,7 +39,7 @@ $svg-filter-hover: brightness(0) saturate(100%) invert(6%) sepia(26%) saturate(7
     font-size: $text-xxs;
     font-weight: $text-light;
     color: $text-muted;
-    letter-spacing: 0.1em;
+    letter-spacing: $letter-spacing-sm;
     text-transform: uppercase;
   }
 

@@ -13,7 +13,7 @@ $section-epigraph-max-width: 300px;
   padding: $section-padding-y-xl $section-padding-x-lg;
 
   @media (max-width: $breakpoint-lg) {
-    padding: $section-padding-y-lg $section-padding-x-lg;
+    padding: $section-padding-y-lg $spacing-2xl;
   }
 
   @media (max-width: $breakpoint-md) {
@@ -38,7 +38,7 @@ $section-epigraph-max-width: 300px;
   &__step {
     font-family: $font-mono;
     font-size: $text-xxs;
-    letter-spacing: 0.15em;
+    letter-spacing: $letter-spacing-lg;
     color: $text-colored-accent;
     padding: $spacing-3xs 0;
   }
@@ -48,8 +48,8 @@ $section-epigraph-max-width: 300px;
     font-family: $font-serif;
     font-size: clamp($spacing-3xl, 4.5vw, $spacing-6xl);
     font-weight: $text-regular;
-    line-height: 0.95;
-    letter-spacing: 0.02em;
+    line-height: $line-height-xs;
+    letter-spacing: $letter-spacing-2xs;
   }
 
   &__title-accent {
@@ -61,7 +61,7 @@ $section-epigraph-max-width: 300px;
     grid-area: epigraph;
     max-width: $section-epigraph-max-width;
     font-size: $text-base;
-    line-height: 1.7;
+    line-height: $line-height-xl;
     color: $text-muted;
 
     @media (max-width: $breakpoint-md) {

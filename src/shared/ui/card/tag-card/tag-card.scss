@@ -12,7 +12,7 @@ $tags-gap: 6px;
     font-family: $font-mono;
     font-size: $text-3xs;
     font-weight: $text-light;
-    letter-spacing: 0.15em;
+    letter-spacing: $letter-spacing-lg;
     text-transform: uppercase;
     color: $text-colored-accent;
     margin-bottom: $pretitle-margin-bottom;
@@ -22,7 +22,7 @@ $tags-gap: 6px;
     font-family: $font-serif;
     font-size: $text-xl;
     font-weight: $text-light;
-    line-height: 1;
+    line-height: $line-height-base;
     margin-bottom: $title-margin-bottom;
   }
 
@@ -30,7 +30,7 @@ $tags-gap: 6px;
     font-family: $font-sans;
     font-size: $text-sm;
     color: $text-muted;
-    line-height: 1.7;
+    line-height: $line-height-xl;
   }
 
   &__tags {
@@ -41,7 +41,7 @@ $tags-gap: 6px;
   &__tag {
     font-family: $font-mono;
     font-size: $text-3xs;
-    letter-spacing: 0.06em;
+    letter-spacing: $letter-spacing-2xs;
     color: $text-muted;
   }
 }

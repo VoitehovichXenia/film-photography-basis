@@ -123,8 +123,12 @@ $text-7xl: 7rem; // 112px
 $text-8xl: 8rem; // 128px
 
 // Font line-heights
-$text-xs--line-height: 1.6;
-$text-base--line-height: calc(1.5 / 1);
+$line-height-xs: 0.95;
+$line-height-base: 1;
+$line-height-sm: 1.1;
+$line-height-md: 1.5;
+$line-height-lg: 1.6;
+$line-height-xl: 1.7;
 
 // Font weights
 $text-light: 300;
@@ -136,3 +140,13 @@ $text-bold: 700;
 $font-sans: 'IBM Plex Sans', sans-serif;
 $font-serif: 'Bebas Neue', 'Arial Narrow', sans-serif;
 $font-mono: 'IBM Plex Mono', monospace;
+
+// Letter-spacing:
+$letter-spacing-4xs: 0.02rem;
+$letter-spacing-3xs: 0.04rem;
+$letter-spacing-2xs: 0.06rem;
+$letter-spacing-xs: 0.08rem;
+$letter-spacing-sm: 0.1rem;
+$letter-spacing-md: 0.12rem;
+$letter-spacing-lg: 0.15rem;
+$letter-spacing-xl: 0.2rem;

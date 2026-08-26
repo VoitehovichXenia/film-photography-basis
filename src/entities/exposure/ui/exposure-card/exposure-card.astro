@@ -26,8 +26,8 @@ const { title, description, step, theme = 'light', className } = Astro.props as 
       font-weight: $text-regular;
       color: $accent;
       opacity: 0.35;
-      line-height: 1;
-      letter-spacing: 0.02em;
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-2xs;
     }
 
     &__text-content {
@@ -43,7 +43,7 @@ const { title, description, step, theme = 'light', className } = Astro.props as 
     &__details {
       font-size: $text-xs;
       color: $text-muted;
-      line-height: $text-xs--line-height;
+      line-height: $line-height-lg;
     }
 
     &[data-theme='dark'] {

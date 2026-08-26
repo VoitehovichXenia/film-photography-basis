@@ -20,7 +20,7 @@
     border: 1px solid $border-50;
     font-family: $font-mono;
     font-size: $text-3xs;
-    letter-spacing: 0.1em;
+    letter-spacing: $letter-spacing-sm;
     text-transform: uppercase;
     color: $text-muted;
   }
@@ -28,7 +28,7 @@
   &__text {
     font-size: $text-xs;
     color: $text-muted;
-    line-height: 1.6;
+    line-height: $line-height-lg;
   }
 
   &__ranges {
@@ -57,6 +57,6 @@
     font-family: $font-mono;
     font-size: $text-xxs;
     color: $text-muted;
-    letter-spacing: 0.04em;
+    letter-spacing: $letter-spacing-3xs;
   }
 }

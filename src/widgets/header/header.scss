@@ -19,6 +19,10 @@ $header-padding-left-md: $spacing-lg;
     box-shadow: none;
   }
 
+  @media (max-width: $breakpoint-lg) {
+    padding: $header-padding-y-lg $spacing-2xl;
+  }
+
   @media (max-width: $breakpoint-md) {
     width: 100vw;
     height: $header-height-md;
@@ -44,9 +48,10 @@ $header-padding-left-md: $spacing-lg;
   grid-area: logo;
   font-family: $font-serif;
   font-size: $text-md;
-  letter-spacing: 0.04em;
+  letter-spacing: $letter-spacing-3xs;
   text-transform: uppercase;
   transition: transform 0.2s ease-in-out;
+  margin-right: $spacing-lg;
 
   &:hover {
     transform: scale(1.025);
@@ -99,7 +104,7 @@ $header-padding-left-md: $spacing-lg;
     .nav-link a {
       font-size: $text-xs;
       color: $text-subtle;
-      letter-spacing: 0.06em;
+      letter-spacing: $letter-spacing-2xs;
       text-transform: uppercase;
       transition: color 0.2s;
       @media (max-width: $breakpoint-md) {

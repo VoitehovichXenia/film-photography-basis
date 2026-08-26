@@ -22,7 +22,7 @@ $range-variants: (
     width: 30%;
     font-family: $font-mono;
     font-size: $text-3xs;
-    letter-spacing: 0.06em;
+    letter-spacing: $letter-spacing-2xs;
     text-transform: uppercase;
     color: $text-muted;
   }
