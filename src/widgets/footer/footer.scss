@@ -1,9 +1,8 @@
 $footer-padding-top-lg: $spacing-7xl;
 $footer-padding-bottom-lg: $spacing-4xl;
-$footer-padding-x-lg: $spacing-4xl;
+
 $footer-padding-top-md: $spacing-2xl;
 $footer-padding-bottom-md: $spacing-lg;
-$footer-padding-x-md: $spacing-lg;
 
 .footer {
   @include grid-layout(
@@ -15,17 +14,17 @@ $footer-padding-x-md: $spacing-lg;
   );
   @include grid-items-align(end);
   border-top: 1px solid $border-10;
-  padding: $footer-padding-top-lg $footer-padding-x-lg $footer-padding-bottom-lg;
-  max-width: calc($max-width + $footer-padding-x-lg * 2);
+  padding: $footer-padding-top-lg $horizontal-p-lg $footer-padding-bottom-lg;
+  max-width: calc($max-width + $horizontal-p-lg * 2);
   margin: 0 auto;
 
   @media (max-width: $breakpoint-lg) {
-    padding: $footer-padding-top-lg $spacing-2xl $footer-padding-bottom-lg;
+    padding: $footer-padding-top-lg $horizontal-p-md $footer-padding-bottom-lg;
   }
 
   @media (max-width: $breakpoint-md) {
     @include grid-layout(1fr, repeat(4, auto), 0, $spacing-xl, 'logo' 'nav' 'author' 'bottom');
-    padding: $footer-padding-top-md $footer-padding-x-md $footer-padding-bottom-md;
+    padding: $footer-padding-top-md $horizontal-p-base $footer-padding-bottom-md;
   }
 
   &__logo-block {
@@ -127,18 +126,22 @@ $footer-padding-x-md: $spacing-lg;
     @include flex-layout();
     @include flex-items-align(center, space-between);
     grid-area: bottom;
-    max-width: calc($max-width + $footer-padding-x-lg * 2);
+    max-width: calc($max-width + $horizontal-p-lg * 2);
     margin: 0 auto;
-    padding: $spacing-lg $footer-padding-x-lg;
+    padding: $spacing-lg $horizontal-p-lg;
     border-top: 1px solid $border-10;
     font-family: $font-mono;
     font-size: $text-xs;
     color: $text-subtle;
     letter-spacing: $letter-spacing-2xs;
 
+    @media (max-width: $breakpoint-lg) {
+      padding: $spacing-lg $horizontal-p-md;
+    }
+
     @media (max-width: $breakpoint-md) {
       @include flex-layout(column, $row-gap: $spacing-4xs);
-      padding: $spacing-sm $footer-padding-x-md;
+      padding: $spacing-sm $horizontal-p-base;
       text-align: center;
     }
 

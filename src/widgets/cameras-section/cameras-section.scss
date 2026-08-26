@@ -11,10 +11,10 @@ $lens-mount-description-margin: 28px;
 
 .lens-mount {
   &__container {
-    margin-top: $section-header-margin-lg;
+    margin-top: $section-header-p-lg;
 
     @media (max-width: $breakpoint-md) {
-      margin-top: $section-header-margin-md;
+      margin-top: $section-header-p-md;
     }
   }
 

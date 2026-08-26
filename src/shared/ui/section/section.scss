@@ -1,8 +1,8 @@
-$section-padding-y-xl: 120px;
-$section-padding-y-lg: $spacing-4xl;
-$section-padding-y-md: $spacing-4xl;
-$section-padding-x-lg: $spacing-4xl;
-$section-padding-x-md: $spacing-lg;
+$padding-y-xl: 120px;
+$padding-y-lg: $spacing-4xl;
+$padding-y-md: $spacing-4xl;
+$padding-x-lg: $spacing-4xl;
+$padding-x-md: $spacing-lg;
 
 $section-title-max-width: 560px;
 $section-epigraph-max-width: 300px;
@@ -10,24 +10,24 @@ $section-epigraph-max-width: 300px;
 .section {
   scroll-margin-top: calc($header-height-lg);
   border-top: 1px solid $border-50;
-  padding: $section-padding-y-xl $section-padding-x-lg;
+  padding: $padding-y-xl $padding-x-lg;
 
   @media (max-width: $breakpoint-lg) {
-    padding: $section-padding-y-lg $spacing-2xl;
+    padding: $padding-y-lg $spacing-2xl;
   }
 
   @media (max-width: $breakpoint-md) {
-    padding: $section-padding-y-md $section-padding-x-md;
+    padding: $padding-y-md $padding-x-md;
   }
 
   &__header {
     @include grid-layout($columns: 1fr auto, $col-gap: $spacing-lg, $areas: 'title epigraph');
     max-width: $max-width;
-    margin: 0 auto $section-header-margin-lg;
+    margin: 0 auto $section-header-p-lg;
 
     @media (max-width: $breakpoint-md) {
       @include grid-layout($columns: 1fr, $row-gap: $spacing-sm, $areas: 'title' 'epigraph');
-      margin-bottom: $section-header-margin-md;
+      margin-bottom: $section-header-p-md;
     }
   }
 

@@ -100,8 +100,12 @@ $spacing-5xl: 4rem; // 64px
 $spacing-6xl: 4.5rem; // 72px
 $spacing-7xl: 5rem; // 80px
 
-$section-header-margin-lg: $spacing-6xl;
-$section-header-margin-md: $spacing-3xl;
+// Global paddings
+$horizontal-p-lg: $spacing-4xl;
+$horizontal-p-md: $spacing-2xl;
+$horizontal-p-base: $spacing-lg;
+$section-header-p-lg: $spacing-6xl;
+$section-header-p-md: $spacing-3xl;
 
 /* Typography */
 
