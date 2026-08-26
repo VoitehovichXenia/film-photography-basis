@@ -1,10 +1,10 @@
-$padding-nav-card: 24px;
+$padding-nav-card: $spacing-lg;
 $bg-nav-card: $ink-900-03;
 $svg-filter-hover: brightness(0) saturate(100%) invert(6%) sepia(26%) saturate(780%)
   hue-rotate(11deg) brightness(100%) contrast(90%);
 
 .nav-card {
-  @include flex-layout($col-gap: 16px);
+  @include flex-layout($col-gap: $spacing-sm);
   @include flex-items-align(center, space-between);
   padding: $padding-nav-card;
   border: 1px solid $border-50;
@@ -31,7 +31,7 @@ $svg-filter-hover: brightness(0) saturate(100%) invert(6%) sepia(26%) saturate(7
   }
 
   &__content {
-    @include flex-layout($dir: column, $row-gap: 4px);
+    @include flex-layout($dir: column, $row-gap: $spacing-4xs);
   }
 
   &__pretitle {

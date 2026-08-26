@@ -21,12 +21,16 @@ $black: #000;
 $black-35: rgba(#000, 0.35);
 $ink-800: #1c1a12;
 $ink-900-03: #1a0a0a08;
+$ink-900-05: #1a0a0a0d;
+$ink-900-55: #1a0a0a8c;
 $ink-950: #0f0f0f;
 $ink-950-10: #0f0f0f1a;
 $ink-950-25: #0f0f0f40;
 
 // Neutrals - white
 $white: #fff;
+$white-12: #ffffff1f;
+$white-50: #ffffff80;
 $white-95: #ffffffbf;
 $cream-50-80: #faf8f4cc;
 $cream-50-90: #faf8f4e2;
@@ -80,12 +84,24 @@ $max-width: 1280px;
 $header-height-lg: 88px;
 $header-height-md: 70px;
 
-$spacing-xxs: 8px;
-$spacing-xs: 16px;
-$spacing-s: 24px;
-$spacing-md: 32px;
-$spacing-lg: 40px;
-$spacing-xxl: 80px;
+$spacing-5xs: 0.125rem; // 2px
+$spacing-4xs: 0.25rem; // 4px
+$spacing-3xs: 0.5rem; // 8px
+$spacing-2xs: 0.625rem; // 10px
+$spacing-xs: 0.75rem; // 12px
+$spacing-sm: 1rem;
+$spacing-md: 1.125rem; // 18px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 2.5rem; // 40px
+$spacing-3xl: 3rem; // 48px
+$spacing-4xl: 3.75rem; // 60px
+$spacing-5xl: 4rem; // 64px
+$spacing-6xl: 4.5rem; // 72px
+$spacing-7xl: 5rem; // 80px
+
+$section-header-margin-lg: $spacing-6xl;
+$section-header-margin-md: $spacing-3xl;
 
 /* Typography */
 

@@ -1,11 +1,11 @@
 .lens-mount-card {
   @include flex-layout(column, $row-gap: 14px);
-  padding: 24px;
+  padding: $spacing-lg;
   border: 1px solid $border-50;
   background: $bg-extra-light;
 
   &__header {
-    @include flex-layout($col-gap: 8px);
+    @include flex-layout($col-gap: $spacing-3xs);
     @include flex-items-align(baseline, space-between);
   }
 
@@ -16,7 +16,7 @@
   }
 
   &__subtitle {
-    padding: 4px 8px;
+    padding: $spacing-4xs $spacing-3xs;
     border: 1px solid $border-50;
     font-family: $font-mono;
     font-size: $text-3xs;
@@ -32,11 +32,11 @@
   }
 
   &__ranges {
-    @include flex-layout(column, $row-gap: 8px);
+    @include flex-layout(column, $row-gap: $spacing-3xs);
   }
 
   &__pros-cons {
-    @include grid-layout(repeat(2, 1fr), $col-gap: 4px, $row-gap: 4px);
+    @include grid-layout(repeat(2, 1fr), $col-gap: $spacing-4xs, $row-gap: $spacing-4xs);
     grid-auto-flow: column;
 
     &_symbol {

@@ -5,15 +5,15 @@ $track-bg: $ink-950-10;
 
 $range-variants: (
   green: (
-    bg: $bg-success,
+    bg: $green-500,
   ),
   red: (
-    bg: $bg-error,
+    bg: $red-500,
   ),
 );
 
 .range {
-  @include flex-layout($col-gap: 12px);
+  @include flex-layout($col-gap: $spacing-xs);
   @include flex-items-align(center);
   min-height: 1rem;
 

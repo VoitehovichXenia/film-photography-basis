@@ -39,17 +39,16 @@ $cta-variants: (
 
 .cta {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
+  @include flex-items-align(center, center);
+  gap: $spacing-3xs;
+  padding: $spacing-xs $spacing-lg;
   border: none;
   border-radius: 2px;
   transition: all 0.3s;
   background-color: transparent;
 
   @media (max-width: $breakpoint-md) {
-    padding: 8px 16px;
+    padding: $spacing-3xs $spacing-sm;
   }
 
   &__text {

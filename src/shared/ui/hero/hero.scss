@@ -49,11 +49,11 @@
     height: 100%;
     max-width: $max-width;
     margin: 0 auto;
-    padding: $spacing-xxl $spacing-s;
+    padding: $spacing-7xl $spacing-lg;
 
     @media (max-width: $breakpoint-md) {
       @include grid-layout(auto, auto auto, 0, 0, 'content-block' 'side-block');
-      padding: $spacing-lg $spacing-s;
+      padding: $spacing-lg $spacing-lg;
     }
   }
 
@@ -65,7 +65,7 @@
 
     @media (max-width: $breakpoint-sm) {
       max-width: unset;
-      padding: $spacing-s;
+      padding: $spacing-lg;
       width: 100%;
     }
 
@@ -90,7 +90,7 @@
   }
 
   &__cta-container {
-    @include flex-layout($col-gap: 12px, $row-gap: 12px);
+    @include flex-layout($col-gap: $spacing-xs, $row-gap: $spacing-xs);
     @include flex-items-align(center, flex-start);
 
     @media (max-width: $breakpoint-md) {
@@ -100,7 +100,7 @@
   }
 
   &__subtitle {
-    @include flex-layout($col-gap: 16px);
+    @include flex-layout($col-gap: $spacing-sm);
     @include flex-items-align(center, flex-start);
     margin-bottom: 28px;
     font-family: $font-mono;
@@ -115,7 +115,7 @@
       width: 40px;
       height: 1px;
       background: $text-accent;
-      margin-right: 8px;
+      margin-right: $spacing-3xs;
     }
 
     @media (max-width: $breakpoint-sm) {
@@ -132,7 +132,7 @@
   &__title {
     @extend %hero-title;
     color: $text-accent;
-    margin-bottom: 32px;
+    margin-bottom: $spacing-xl;
 
     @media (max-width: $breakpoint-sm) {
       font-size: 15vw;
@@ -143,7 +143,7 @@
     font-size: $text-md;
     max-width: 480px;
     line-height: 1.7;
-    margin-bottom: 48px;
+    margin-bottom: $spacing-3xl;
 
     @media (max-width: $breakpoint-sm) {
       font-size: $text-xs;

@@ -1,15 +1,15 @@
-$footer-padding-top-lg: 80px;
-$footer-padding-bottom-lg: 60px;
-$footer-padding-x-lg: 60px;
-$footer-padding-top-md: 40px;
-$footer-padding-bottom-md: 24px;
-$footer-padding-x-md: 24px;
+$footer-padding-top-lg: $spacing-7xl;
+$footer-padding-bottom-lg: $spacing-4xl;
+$footer-padding-x-lg: $spacing-4xl;
+$footer-padding-top-md: $spacing-2xl;
+$footer-padding-bottom-md: $spacing-lg;
+$footer-padding-x-md: $spacing-lg;
 
 .footer {
   @include grid-layout(
     repeat(3, 1fr),
     repeat(2, auto),
-    40px,
+    $spacing-2xl,
     0,
     'logo nav author' 'bottom bottom bottom'
   );
@@ -20,7 +20,7 @@ $footer-padding-x-md: 24px;
   margin: 0 auto;
 
   @media (max-width: $breakpoint-md) {
-    @include grid-layout(1fr, repeat(4, auto), 0, 32px, 'logo' 'nav' 'author' 'bottom');
+    @include grid-layout(1fr, repeat(4, auto), 0, $spacing-xl, 'logo' 'nav' 'author' 'bottom');
     padding: $footer-padding-top-md $footer-padding-x-md $footer-padding-bottom-md;
   }
 
@@ -45,7 +45,7 @@ $footer-padding-x-md: 24px;
   }
 
   &__tagline {
-    margin-top: 8px;
+    margin-top: $spacing-3xs;
     font-size: $text-xs;
     color: $text-subtle;
     line-height: $text-xs--line-height;
@@ -53,7 +53,7 @@ $footer-padding-x-md: 24px;
 
   &__nav {
     grid-area: nav;
-    @include flex-layout(column, $row-gap: 12px);
+    @include flex-layout(column, $row-gap: $spacing-xs);
     @include flex-items-align(flex-start, center);
 
     &-link {
@@ -95,7 +95,7 @@ $footer-padding-x-md: 24px;
       font-family: $font-serif;
       font-weight: $text-light;
       font-size: $text-md;
-      margin-bottom: 4px;
+      margin-bottom: $spacing-4xs;
     }
 
     &-position {
@@ -108,9 +108,9 @@ $footer-padding-x-md: 24px;
     }
 
     &-contacts {
-      @include flex-layout($col-gap: 16px);
+      @include flex-layout($col-gap: $spacing-sm);
       @include flex-items-align(center, flex-end);
-      margin-top: 16px;
+      margin-top: $spacing-sm;
     }
 
     &-contact {
@@ -125,7 +125,7 @@ $footer-padding-x-md: 24px;
     grid-area: bottom;
     max-width: calc($max-width + $footer-padding-x-lg * 2);
     margin: 0 auto;
-    padding: 24px $footer-padding-x-lg;
+    padding: $spacing-lg $footer-padding-x-lg;
     border-top: 1px solid $border-10;
     font-family: $font-mono;
     font-size: $text-xs;
@@ -133,13 +133,13 @@ $footer-padding-x-md: 24px;
     letter-spacing: 0.06em;
 
     @media (max-width: $breakpoint-md) {
-      @include flex-layout(column, $row-gap: 4px);
-      padding: 16px $footer-padding-x-md;
+      @include flex-layout(column, $row-gap: $spacing-4xs);
+      padding: $spacing-sm $footer-padding-x-md;
       text-align: center;
     }
 
     ul {
-      @include flex-layout($col-gap: 4px);
+      @include flex-layout($col-gap: $spacing-4xs);
       @include flex-items-align(stretch, center);
       flex-wrap: wrap;
     }

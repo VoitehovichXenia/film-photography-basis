@@ -1,7 +1,9 @@
-$tag-card-padding: 32px;
-$pretitle-margin-bottom: 10px;
-$title-margin-bottom: 12px;
+$tag-card-padding: $spacing-xl;
+$pretitle-margin-bottom: $spacing-2xs;
+$title-margin-bottom: $spacing-xs;
+
 $tags-margin-top: 20px;
+$tags-gap: 6px;
 
 .tag-card {
   padding: $tag-card-padding;
@@ -32,7 +34,7 @@ $tags-margin-top: 20px;
   }
 
   &__tags {
-    @include flex-layout($wrap: wrap, $col-gap: 6px);
+    @include flex-layout($wrap: wrap, $col-gap: $tags-gap, $row-gap: $tags-gap);
     margin-top: $tags-margin-top;
   }
 

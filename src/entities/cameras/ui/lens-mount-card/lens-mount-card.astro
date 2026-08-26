@@ -22,7 +22,7 @@ const { title, subtitle, text, tags, ranges: { glassSelection, changeSpeed }, pr
     </div>
 
     <div class="lens-mount-card__pros-cons">
-        {prosAndCons.map(({ type }) => (
+        {prosAndCons.map(({ type, text }) => (
             <Badge kind={MOUNT_VARIANTS_CONFIG[type]?.kind} className={`lens-mount-card__pros-cons_${type}`}>
                 <span class="lens-mount__pros-and-cons_symbol">{MOUNT_VARIANTS_CONFIG[type]?.symbol}</span>
                 {text}

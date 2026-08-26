@@ -1,18 +1,25 @@
+$lens-mount-title-margin: 6px;
+$lens-mount-description-margin: 28px;
+
 .film-format-cards__container {
-  @include grid-layout($columns: repeat(2, 1fr), $col-gap: 2px);
+  @include grid-layout($columns: repeat(2, 1fr), $col-gap: $spacing-5xs);
 
   @media (max-width: $breakpoint-md) {
-    @include grid-layout($columns: 1fr, $row-gap: 4px);
+    @include grid-layout($columns: 1fr, $row-gap: $spacing-4xs);
   }
 }
 
 .lens-mount {
   &__container {
-    margin-top: 72px;
+    margin-top: $section-header-margin-lg;
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: $section-header-margin-md;
+    }
   }
 
   &__title {
-    margin-bottom: 6px;
+    margin-bottom: $lens-mount-title-margin;
     font-family: $font-mono;
     font-size: $text-xxs;
     letter-spacing: 0.15em;
@@ -23,7 +30,7 @@
 
   &__description {
     max-width: 640px;
-    margin-bottom: 28px;
+    margin-bottom: $lens-mount-description-margin;
     font-size: $text-sm;
     line-height: 1.7;
     color: $text-base-color;

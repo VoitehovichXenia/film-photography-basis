@@ -12,7 +12,7 @@ $badge-variants: (
 );
 
 .badge {
-  padding: 8px 12px;
+  padding: $spacing-3xs $spacing-xs;
 
   &__text {
     font-size: $text-xs;
