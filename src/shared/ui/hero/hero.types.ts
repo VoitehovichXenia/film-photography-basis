@@ -5,6 +5,5 @@ export interface HeroProps {
   titleAccent?: string;
   subtitle: string;
   description: string;
-  sideText: string;
   image: LocalImageProps;
 }

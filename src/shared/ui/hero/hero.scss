@@ -75,14 +75,13 @@
   }
 
   &__side-block {
-    @include position-absolute($right: 0, $top: calc($header-height-lg + 20%));
-    align-self: end;
-    font-family: $font-serif;
-    font-weight: $text-bold;
-    font-size: 220px;
-    line-height: $line-height-sm;
-    color: $text-accent;
-    transform: rotate(270deg) translateY(120px);
+    @include position-absolute($right: 0, $top: 0);
+    height: 100%;
+    padding: $spacing-xl 0;
+
+    [slot='side-image'] {
+      height: 100%;
+    }
 
     @media (max-width: $breakpoint-md) {
       display: none;

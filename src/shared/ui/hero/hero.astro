@@ -3,7 +3,7 @@ import { Image, Picture } from 'astro:assets';
 import type { HeroProps } from './hero.types';
 import './hero.scss';
 
-const { title, titleAccent, description, sideText, image, subtitle } = Astro.props as HeroProps;
+const { title, titleAccent, description, image, subtitle } = Astro.props as HeroProps;
 
 const titleText = titleAccent
   ? title.replace(titleAccent, `<span class="hero-accent">${titleAccent}</span>`)
@@ -12,8 +12,8 @@ const titleText = titleAccent
 
 <div class="hero" data-hero>
   <Image
-    src={image.src}
-    alt=""
+    {...image}
+    alt="Blur placehoder"
     width={30}
     quality={20}
     format="avif"
@@ -25,11 +25,11 @@ const titleText = titleAccent
   />
   <Picture
     src={image.src}
+    alt={image.alt}
     formats={['avif']}
     widths={[ 600, 960, 1280, 1600, 1920, 2240 ]}
     sizes="100vw"
     quality={68}
-    alt={image.alt}
     loading="eager"
     fetchpriority="high"
     decoding="sync"
@@ -54,7 +54,7 @@ const titleText = titleAccent
     </div>
   </div>
   <div class="hero__side-block">
-    <span>{sideText}</span>
+    <slot name="side-image" />
   </div>
 </div>
 
