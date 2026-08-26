@@ -22,7 +22,7 @@ $lens-mount-description-margin: 28px;
     margin-bottom: $lens-mount-title-margin;
     font-family: $font-mono;
     font-size: $text-xxs;
-    letter-spacing: 0.15em;
+    letter-spacing: $letter-spacing-lg;
     text-transform: uppercase;
     color: $text-muted;
     font-weight: $text-light;
@@ -32,7 +32,7 @@ $lens-mount-description-margin: 28px;
     max-width: 640px;
     margin-bottom: $lens-mount-description-margin;
     font-size: $text-sm;
-    line-height: 1.7;
+    line-height: $line-height-xl;
     color: $text-base-color;
 
     &-accent {

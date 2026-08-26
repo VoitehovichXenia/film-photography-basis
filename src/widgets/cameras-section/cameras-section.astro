@@ -19,7 +19,7 @@ const lensMountDescription = lensMount.descriptionText.replace(lensMount.descrip
     <div class="lens-mount__container" slot="content">
         <h3 class="lens-mount__title">{lensMount.title}</h3>
         <p class="lens-mount__description" set:html={lensMountDescription} />
-        <CardGrid columns={{ base: 3 }} colGap={{ base: '2px' }} rowGap={{ base: '2px' }}>
+        <CardGrid columns={{ lg: 3, md: 2, base: 1 }} colGap={{ base: '2px' }} rowGap={{ base: '4px', md: '2px' }}>
             {lensMount.cards.map(card => (<LensMountCard {...card}/>))}
         </CardGrid>
     </div>
