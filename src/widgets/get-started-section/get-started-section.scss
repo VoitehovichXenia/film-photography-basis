@@ -1,6 +1,6 @@
 .get-started-section {
-  @include flex-layout($dir: column, $row-gap: 2px);
+  @include flex-layout($dir: column, $row-gap: $spacing-5xs);
   @media (max-width: $breakpoint-md) {
-    gap: 4px 0;
+    gap: $spacing-4xs 0;
   }
 }

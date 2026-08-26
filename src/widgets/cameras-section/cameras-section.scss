@@ -1,0 +1,43 @@
+$lens-mount-title-margin: 6px;
+$lens-mount-description-margin: 28px;
+
+.film-format-cards__container {
+  @include grid-layout($columns: repeat(2, 1fr), $col-gap: $spacing-5xs);
+
+  @media (max-width: $breakpoint-md) {
+    @include grid-layout($columns: 1fr, $row-gap: $spacing-4xs);
+  }
+}
+
+.lens-mount {
+  &__container {
+    margin-top: $section-header-p-lg;
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: $section-header-p-md;
+    }
+  }
+
+  &__title {
+    margin-bottom: $lens-mount-title-margin;
+    font-family: $font-mono;
+    font-size: $text-xxs;
+    letter-spacing: $letter-spacing-lg;
+    text-transform: uppercase;
+    color: $text-muted;
+    font-weight: $text-light;
+  }
+
+  &__description {
+    max-width: 640px;
+    margin-bottom: $lens-mount-description-margin;
+    font-size: $text-sm;
+    line-height: $line-height-xl;
+    color: $text-base-color;
+
+    &-accent {
+      font-weight: $text-bold;
+      color: $text-colored-accent;
+    }
+  }
+}

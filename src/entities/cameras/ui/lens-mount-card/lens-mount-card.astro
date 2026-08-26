@@ -1,0 +1,41 @@
+---
+import { Range } from "@ui/range";
+import { Badge } from "@ui/badge";
+
+import type { LensMountCardProps } from "./lens-mount-card.types";
+import { getRangeTrackColor, MOUNT_VARIANTS_CONFIG } from "./lens-mount-card.const";
+import './lens-mount-card.scss'
+
+const { title, subtitle, text, tags, ranges: { glassSelection, changeSpeed }, prosAndCons } = Astro.props as LensMountCardProps;
+---
+
+<div class="lens-mount-card">
+    <div class="lens-mount-card__header">
+        <h3 class="lens-mount-card__title">{title}</h3>
+        <p class="lens-mount-card__subtitle">{subtitle}</p>
+    </div>
+    <p class="lens-mount-card__text">{text}</p>
+
+    <div class="lens-mount-card__ranges">
+        <Range {...glassSelection} trackColor={getRangeTrackColor(glassSelection.value)} />
+        <Range {...changeSpeed} trackColor={getRangeTrackColor(changeSpeed.value)} />
+    </div>
+
+    <div class="lens-mount-card__pros-cons">
+        {prosAndCons.map(({ type, text }) => (
+            <Badge kind={MOUNT_VARIANTS_CONFIG[type]?.kind} className={`lens-mount-card__pros-cons_${type}`}>
+                <span class="lens-mount__pros-and-cons_symbol">{MOUNT_VARIANTS_CONFIG[type]?.symbol}</span>
+                {text}
+            </Badge>
+        ))}
+    </div>
+
+    <div class="lens-mount-card__tags">
+        {tags.map((tag, i) => (
+            <>
+                <span>{tag}</span>
+                {i < tags.length - 1 && <span> · </span>}
+            </>
+        ))}
+    </div>
+</div>

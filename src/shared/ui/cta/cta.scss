@@ -1,0 +1,121 @@
+@use 'sass:map';
+
+$cta-variants: (
+  primary: (
+    bg: $accent,
+    color: $text-accent,
+    hover-bg: $accent-hover,
+  ),
+  primary_dark-text: (
+    bg: $accent,
+    color: $text-accent-dark,
+    hover-bg: $accent-hover,
+    hover-color: $text-accent,
+  ),
+  secondary: (
+    border: $accent,
+    color: $accent,
+  ),
+  secondary_dark-text: (
+    border: $accent,
+    color: $accent,
+    hover-bg: $accent,
+    hover-color: $text-accent-dark,
+  ),
+  link: (
+    color: $text-accent-dark,
+    hover-color: $accent,
+    active-color: $accent,
+    box-shadow: none,
+    text-after: (
+      background-color: $accent,
+    ),
+  ),
+  icon-primary: (
+    box-shadow: none,
+    color: $accent,
+  ),
+);
+
+.cta {
+  display: inline-flex;
+  @include flex-items-align(center, center);
+  gap: $spacing-3xs;
+  padding: $spacing-xs $spacing-lg;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+  background-color: transparent;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-3xs $spacing-sm;
+  }
+
+  &__text {
+    @include position-relative();
+    font-size: $text-base;
+    font-size: $text-xs;
+    font-weight: $text-semi-bold;
+    text-decoration: none;
+    text-align: center;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-radius: 2px;
+      margin: 0 auto;
+      transition: width 0.3s;
+    }
+  }
+
+  @each $name, $props in $cta-variants {
+    &__#{$name} {
+      @if map.has-key($props, bg) {
+        background-color: map.get($props, bg);
+      }
+
+      @if map.has-key($props, border) {
+        border: 1px solid;
+        border-color: map.get($props, border);
+      }
+
+      @if map.has-key($props, color) {
+        color: map.get($props, color);
+      }
+
+      &:active {
+        @if map.has-key($props, active-color) {
+          color: map.get($props, active-color);
+        }
+      }
+
+      @media (min-width: $breakpoint-md) {
+        &:hover {
+          @if map.has-key($props, hover-bg) {
+            background-color: map.get($props, hover-bg);
+          }
+          @if map.has-key($props, hover-color) {
+            color: map.get($props, hover-color);
+          }
+          @if map.has-key($props, text-after) {
+            & .cta__text::after {
+              @include position-absolute($left: 0, $bottom: 0);
+              width: 100%;
+              height: 1px;
+              @each $prop, $value in map.get($props, text-after) {
+                #{$prop}: $value;
+              }
+            }
+          }
+          @if map.has-key($props, box-shadow) {
+            box-shadow: map.get($props, box-shadow);
+          } @else {
+            box-shadow: 0 0 8px $gray-600;
+          }
+        }
+      }
+    }
+  }
+}

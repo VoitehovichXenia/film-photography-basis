@@ -1,0 +1,76 @@
+$padding-y-xl: 120px;
+$padding-y-lg: $spacing-4xl;
+$padding-y-md: $spacing-4xl;
+$padding-x-lg: $spacing-4xl;
+$padding-x-md: $spacing-lg;
+
+$section-title-max-width: 560px;
+$section-epigraph-max-width: 300px;
+
+.section {
+  scroll-margin-top: calc($header-height-lg);
+  border-top: 1px solid $border-50;
+  padding: $padding-y-xl $padding-x-lg;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: $padding-y-lg $spacing-2xl;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $padding-y-md $padding-x-md;
+  }
+
+  &__header {
+    @include grid-layout($columns: 1fr auto, $col-gap: $spacing-lg, $areas: 'title epigraph');
+    max-width: $max-width;
+    margin: 0 auto $section-header-p-lg;
+
+    @media (max-width: $breakpoint-md) {
+      @include grid-layout($columns: 1fr, $row-gap: $spacing-sm, $areas: 'title' 'epigraph');
+      margin-bottom: $section-header-p-md;
+    }
+  }
+
+  &__title-container {
+    grid-area: title;
+  }
+
+  &__step {
+    font-family: $font-mono;
+    font-size: $text-xxs;
+    letter-spacing: $letter-spacing-lg;
+    color: $text-colored-accent;
+    padding: $spacing-3xs 0;
+  }
+
+  &__title {
+    max-width: $section-title-max-width;
+    font-family: $font-serif;
+    font-size: clamp($spacing-3xl, 4.5vw, $spacing-6xl);
+    font-weight: $text-regular;
+    line-height: $line-height-xs;
+    letter-spacing: $letter-spacing-2xs;
+  }
+
+  &__title-accent {
+    @include inherit-font-properties();
+    color: $text-colored-accent;
+  }
+
+  &__epigraph {
+    grid-area: epigraph;
+    max-width: $section-epigraph-max-width;
+    font-size: $text-base;
+    line-height: $line-height-xl;
+    color: $text-muted;
+
+    @media (max-width: $breakpoint-md) {
+      max-width: unset;
+    }
+  }
+
+  &__content-container {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+}

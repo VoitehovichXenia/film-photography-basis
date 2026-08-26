@@ -1,0 +1,12 @@
+---
+import type { BadgeProps } from "./badge.types";
+import './badge.scss';
+
+const { className, kind = 'default' } = Astro.props as BadgeProps
+---
+
+<div class:list={['badge', `badge__${kind}`, className]}>
+    <p class="badge__text">
+        <slot />
+    </p>
+</div>

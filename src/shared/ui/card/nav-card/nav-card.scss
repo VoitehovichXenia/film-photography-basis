@@ -1,0 +1,52 @@
+$padding-nav-card: $spacing-lg;
+$bg-nav-card: $ink-900-03;
+$svg-filter-hover: brightness(0) saturate(100%) invert(6%) sepia(26%) saturate(780%)
+  hue-rotate(11deg) brightness(100%) contrast(90%);
+
+.nav-card {
+  @include flex-layout($col-gap: $spacing-sm);
+  @include flex-items-align(center, space-between);
+  padding: $padding-nav-card;
+  border: 1px solid $border-50;
+  line-height: $line-height-lg;
+  background: $bg-nav-card;
+  transition:
+    background 0.3s,
+    color 0.3s ease-in-out;
+
+  @media (min-width: $breakpoint-md) {
+    &:hover {
+      background: $bg-extra-light;
+      color: $text-accent-dark;
+
+      .nav-card__pretitle,
+      .nav-card__title {
+        color: $text-accent-dark;
+      }
+
+      svg {
+        filter: $svg-filter-hover;
+      }
+    }
+  }
+
+  &__content {
+    @include flex-layout($dir: column, $row-gap: $spacing-4xs);
+  }
+
+  &__pretitle {
+    font-family: $font-mono;
+    font-size: $text-xxs;
+    font-weight: $text-light;
+    color: $text-muted;
+    letter-spacing: $letter-spacing-sm;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-family: $font-sans;
+    font-size: $text-base;
+    font-weight: $text-semi-bold;
+    color: $text-colored-accent;
+  }
+}

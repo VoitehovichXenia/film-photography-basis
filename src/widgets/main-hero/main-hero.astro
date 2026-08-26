@@ -1,14 +1,26 @@
 ---
+import { Image } from 'astro:assets';
 import { Hero } from '@ui/hero';
 import { Cta } from '@ui/cta';
+import './main-hero.scss';
 
 import { heroContent } from '@content/hero';
 
-const  { cta, ...hero } = heroContent
+const  { cta, sideImage, ...hero } = heroContent
 ---
 
 <Hero {...hero}>
   {cta?.map((item) => (
     <Cta slot="cta" {...item} />
   ))}
+  <Image
+    {...sideImage}
+    slot="side-image"
+    src={sideImage.src}
+    format="svg"
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    class="hero__side-image"
+  />
 </Hero>

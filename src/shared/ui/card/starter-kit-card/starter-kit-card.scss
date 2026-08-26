@@ -1,0 +1,72 @@
+$card-padding-y: $spacing-2xl;
+$card-padding-x: 36px;
+
+$card-step-text: $ink-900-05;
+$card-text: $ink-900-55;
+$card-step-text-active: $white-12;
+$card-pretitle-text-active: $white-50;
+
+.sk-card {
+  @include position-relative();
+  background: $bg-extra-light;
+  border: 1px solid $border-50;
+  padding: $spacing-2xl $card-padding-x;
+  overflow: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  cursor: pointer;
+
+  &.sk-card--active {
+    background-color: $bg-accent;
+
+    .sk-card__step {
+      color: $card-step-text-active;
+    }
+    .sk-card__pretitle {
+      color: $card-pretitle-text-active;
+    }
+    .sk-card__title,
+    .sk-card__text {
+      color: $text-accent;
+    }
+  }
+
+  &__step {
+    @include position-absolute($top: 0, $right: 20px, $zIndex: 0);
+    font-family: $font-serif;
+    font-size: $text-8xl;
+    font-weight: $text-bold;
+    color: $card-step-text;
+    line-height: $line-height-base;
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+
+  &__pretitle {
+    font-family: $font-mono;
+    font-weight: $text-light;
+    font-size: $text-xxs;
+    letter-spacing: $letter-spacing-md;
+    text-transform: uppercase;
+    color: $text-muted;
+    margin-bottom: $spacing-xs;
+    transition: color 0.3s ease;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $text-xl;
+    font-weight: $text-regular;
+    letter-spacing: $letter-spacing-2xs;
+    margin-bottom: $spacing-xs;
+    transition: color 0.3s ease;
+  }
+
+  &__text {
+    font-size: $text-sm;
+    line-height: $line-height-xl;
+    color: $card-text;
+    transition: color 0.3s ease;
+  }
+}

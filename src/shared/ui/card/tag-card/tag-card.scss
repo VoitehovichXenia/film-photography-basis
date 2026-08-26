@@ -1,0 +1,47 @@
+$tag-card-padding: $spacing-xl;
+$pretitle-margin-bottom: $spacing-2xs;
+$title-margin-bottom: $spacing-xs;
+
+$tags-margin-top: 20px;
+$tags-gap: 6px;
+
+.tag-card {
+  padding: $tag-card-padding;
+
+  &__pretitle {
+    font-family: $font-mono;
+    font-size: $text-3xs;
+    font-weight: $text-light;
+    letter-spacing: $letter-spacing-lg;
+    text-transform: uppercase;
+    color: $text-colored-accent;
+    margin-bottom: $pretitle-margin-bottom;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: $text-xl;
+    font-weight: $text-light;
+    line-height: $line-height-base;
+    margin-bottom: $title-margin-bottom;
+  }
+
+  &__description {
+    font-family: $font-sans;
+    font-size: $text-sm;
+    color: $text-muted;
+    line-height: $line-height-xl;
+  }
+
+  &__tags {
+    @include flex-layout($wrap: wrap, $col-gap: $tags-gap, $row-gap: $tags-gap);
+    margin-top: $tags-margin-top;
+  }
+
+  &__tag {
+    font-family: $font-mono;
+    font-size: $text-3xs;
+    letter-spacing: $letter-spacing-2xs;
+    color: $text-muted;
+  }
+}

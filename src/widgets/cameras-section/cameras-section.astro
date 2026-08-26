@@ -1,0 +1,26 @@
+---
+import { Section } from '@ui/section';
+import { FilmFormatCard, LensMountCard } from '@entities/cameras';
+import { camerasSectionContent } from '@content/cameras-section';
+import './cameras-section.scss';
+import CardGrid from '@ui/card/grid/card-grid.astro';
+
+const { section, filmFormatCards, lensMount } = camerasSectionContent;
+
+const lensMountDescription = lensMount.descriptionText.replace(lensMount.descriptionAccentText, `<span class="lens-mount__description-accent">${lensMount.descriptionAccentText}</span>`);
+---
+
+<Section {...section}>
+    <div class="film-format-cards__container" slot="content">
+        {filmFormatCards.map((card) => (
+            <FilmFormatCard {...card} />
+        ))}
+    </div>
+    <div class="lens-mount__container" slot="content">
+        <h3 class="lens-mount__title">{lensMount.title}</h3>
+        <p class="lens-mount__description" set:html={lensMountDescription} />
+        <CardGrid columns={{ lg: 3, md: 2, base: 1 }} colGap={{ base: '2px' }} rowGap={{ base: '4px', md: '2px' }}>
+            {lensMount.cards.map(card => (<LensMountCard {...card}/>))}
+        </CardGrid>
+    </div>
+</Section>

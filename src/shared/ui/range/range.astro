@@ -1,0 +1,15 @@
+---
+import type { RangeProps } from "./range.types";
+import './range.scss';
+
+const { label, value, trackColor } = Astro.props as RangeProps;
+
+const normalizedValue = Math.min(Math.max(value, 0), 100);
+---
+
+<div class="range">
+    {label && <span class="range__label">{label}</span>}
+    <div class="range__track">
+        <div class:list={["range__track_fill", trackColor]} style={`--width: ${normalizedValue}%`}></div>
+    </div>
+</div>

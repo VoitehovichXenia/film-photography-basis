@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+$badge-variants: (
+  success: (
+    bg: $bg-success,
+    color: $text-success,
+  ),
+  error: (
+    bg: $bg-error,
+    color: $text-error,
+  ),
+);
+
+.badge {
+  padding: $spacing-3xs $spacing-xs;
+
+  &__text {
+    font-size: $text-xs;
+    line-height: $line-height-md;
+    font-weight: $text-regular;
+  }
+
+  @each $name, $props in $badge-variants {
+    &__#{$name} {
+      @if map.has-key($props, bg) {
+        background-color: map.get($props, bg);
+      }
+      @if map.has-key($props, color) {
+        color: map.get($props, color);
+      }
+    }
+  }
+}
